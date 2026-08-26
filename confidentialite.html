@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aumely — Politique de confidentialité</title>
+<meta name="description" content="Comment Aumely traite vos données : ce qui reste sur votre appareil, ce qui est enregistré, et comment tout supprimer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Palette reprise du site vitrine et de l'application — le violet #6257e8
+   n'est pas choisi au hasard : les trois doivent se ressembler. */
+:root{
+  --violet:#6257e8; --violet-wash:#f2f0ff; --violet-mist:#f8f7ff;
+  --ink:#14141c; --ink-mid:#4a4a58; --ink-soft:#75757f;
+  --line:#ecebf4; --page:#ffffff; --surface:#fbfaff;
+  --radius:20px;
+  --lift:0 1px 2px rgba(20,20,40,.04), 0 8px 24px rgba(20,20,60,.06);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--page); color:var(--ink);
+  font-family:"Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size:17px; line-height:1.65;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px}
+
+header{
+  background:linear-gradient(180deg, var(--violet-mist), var(--page));
+  border-bottom:1px solid var(--line); padding:56px 0 40px; margin-bottom:44px;
+}
+h1{
+  font-family:"Bricolage Grotesque", sans-serif; font-weight:700;
+  font-size:clamp(30px,5vw,42px); line-height:1.15; margin:0 0 12px; text-wrap:balance;
+}
+.chapeau{color:var(--ink-mid); font-size:19px; margin:0}
+.maj{color:var(--ink-soft); font-size:15px; margin-top:20px}
+
+h2{
+  font-family:"Bricolage Grotesque", sans-serif; font-weight:600;
+  font-size:24px; line-height:1.25; margin:44px 0 14px; text-wrap:balance;
+}
+h3{font-size:18px; font-weight:600; margin:26px 0 8px}
+p{margin:0 0 16px; color:var(--ink-mid)}
+strong{color:var(--ink); font-weight:600}
+ul{margin:0 0 18px; padding-left:22px; color:var(--ink-mid)}
+li{margin-bottom:8px}
+a{color:var(--violet); text-decoration:underline; text-underline-offset:2px}
+
+/* L'encadré sert à mettre en avant ce qui rassure vraiment le lecteur —
+   employé avec parcimonie, sinon il ne met plus rien en avant. */
+.cle{
+  background:var(--violet-wash); border-radius:var(--radius);
+  padding:22px 24px; margin:26px 0; box-shadow:var(--lift);
+}
+.cle p:last-child{margin-bottom:0}
+
+.tableau{width:100%; border-collapse:collapse; margin:20px 0; font-size:16px}
+.tableau th, .tableau td{
+  text-align:left; padding:12px 14px; border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+.tableau th{font-weight:600; color:var(--ink); background:var(--surface)}
+.tableau td{color:var(--ink-mid)}
+
+footer{
+  border-top:1px solid var(--line); margin-top:56px; padding:28px 0 48px;
+  color:var(--ink-soft); font-size:15px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --page:#101018; --surface:#16161f; --ink:#f4f3fa; --ink-mid:#bcbccb;
+    --ink-soft:#8b8b9c; --line:#27273a; --violet-wash:#1d1b34; --violet-mist:#15142a;
+    --violet:#9b92ff;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Politique de confidentialité</h1>
+    <p class="chapeau">Ce document explique, sans détour, quelles données Aumely traite, où elles se trouvent, et comment vous pouvez tout supprimer.</p>
+    <p class="maj">Dernière mise à jour : 26 août 2026</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="cle">
+    <p><strong>L'essentiel en une phrase :</strong> vos recettes, dépenses, factures, devis, clients et justificatifs restent sur votre iPhone et dans votre iCloud personnel. Aumely ne les héberge pas et n'y a pas accès.</p>
+  </div>
+
+  <h2>Qui traite vos données</h2>
+  <p>Aumely est édité par <strong>Yamin Alouache</strong>, en France. Ce document décrit le traitement des données de l'application iOS Aumely.</p>
+
+  <h2>Ce qui reste sur votre appareil</h2>
+  <p>Toutes vos données professionnelles sont enregistrées <strong>localement sur votre iPhone</strong> :</p>
+  <ul>
+    <li>recettes et dépenses ;</li>
+    <li>factures et devis ;</li>
+    <li>clients et documents rattachés ;</li>
+    <li>justificatifs, photos et pièces jointes ;</li>
+    <li>catégories, canaux de vente et modes de règlement.</li>
+  </ul>
+  <p>Si la sauvegarde iCloud est active sur votre appareil, ces données sont également synchronisées dans <strong>votre espace iCloud privé</strong>, fourni par Apple. Cet espace vous appartient : Aumely n'y a aucun accès et ne peut ni lire, ni modifier, ni consulter ce qu'il contient.</p>
+
+  <h2>Ce qui est enregistré sur nos serveurs</h2>
+  <p>Seul le strict nécessaire au fonctionnement de votre compte est conservé :</p>
+
+  <table class="tableau">
+    <tr><th>Donnée</th><th>Pourquoi</th></tr>
+    <tr><td>Adresse e-mail</td><td>Créer votre compte et vous connecter</td></tr>
+    <tr><td>Prénom <em>(facultatif)</em></td><td>Vous accueillir par votre nom</td></tr>
+    <tr><td>Type d'activité</td><td>Adapter l'accueil à votre métier</td></tr>
+    <tr><td>Dates de votre essai gratuit</td><td>Savoir où vous en êtes de vos 14 jours</td></tr>
+    <tr><td>Vos demandes d'assistance</td><td>Vous répondre</td></tr>
+  </table>
+
+  <p>Ces données sont hébergées chez <strong>Supabase</strong>, sur des serveurs situés dans l'Union européenne. Elles sont protégées par des règles d'isolation appliquées côté serveur : <strong>un compte ne peut accéder qu'à ses propres informations</strong>, jamais à celles d'un autre.</p>
+
+  <h3>Si vous utilisez « Se connecter avec Apple »</h3>
+  <p>Apple nous transmet un identifiant technique et une adresse e-mail — celle-ci peut être une adresse relais si vous avez choisi de masquer la vôtre. Nous conservons également un jeton fourni par Apple, dans un <strong>unique but</strong> : pouvoir révoquer l'autorisation accordée à Aumely le jour où vous supprimez votre compte, comme l'exige Apple. Ce jeton est inaccessible depuis l'application et disparaît avec votre compte.</p>
+
+  <h2>Paiement et abonnement</h2>
+  <p>L'abonnement Aumely Plus est géré <strong>entièrement par Apple</strong>, via votre compte App Store.</p>
+  <p><strong>Aumely ne voit jamais vos données bancaires</strong> : ni numéro de carte, ni coordonnées de paiement, ni adresse de facturation. Nous savons uniquement si un abonnement est actif, information que l'appareil obtient directement d'Apple.</p>
+
+  <h2>Ce que nous ne faisons pas</h2>
+  <ul>
+    <li>Aucune publicité, d'aucune sorte.</li>
+    <li>Aucun traceur publicitaire, aucun profilage.</li>
+    <li>Aucune vente, location ni échange de vos données.</li>
+    <li>Aucune consultation de vos recettes, dépenses ou factures — elles ne sont pas sur nos serveurs.</li>
+  </ul>
+
+  <h2>Combien de temps vos données sont conservées</h2>
+  <p>Vos données de compte sont conservées <strong>tant que votre compte existe</strong>. Elles sont supprimées lorsque vous le supprimez.</p>
+  <p>Vos données professionnelles vivent sur votre appareil : elles y restent tant que vous ne les effacez pas, et disparaissent si vous désinstallez l'application sans sauvegarde iCloud.</p>
+
+  <h2>Supprimer votre compte</h2>
+  <p>Vous pouvez supprimer votre compte <strong>directement depuis l'application</strong>, sans nous écrire ni attendre : <em>Plus → Compte → Supprimer mon compte</em>.</p>
+  <p>La suppression est <strong>immédiate et définitive</strong>. Elle efface votre profil, vos demandes d'assistance et, le cas échéant, l'autorisation « Se connecter avec Apple » associée à Aumely. Vos données locales sont également effacées de l'appareil.</p>
+  <p>Un abonnement en cours se gère, lui, depuis les réglages de votre compte Apple : nous n'avons pas la main dessus.</p>
+
+  <h2>Vos droits</h2>
+  <p>Conformément au Règlement général sur la protection des données, vous disposez d'un droit d'accès, de rectification, d'effacement, de portabilité, d'opposition et de limitation.</p>
+  <p>L'accès et la rectification se font directement dans l'application. L'effacement s'obtient par la suppression de compte décrite ci-dessus. Pour toute autre demande, écrivez-nous depuis la page d'assistance.</p>
+  <p>Vous pouvez également introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>.</p>
+
+  <h2>Enfants</h2>
+  <p>Aumely s'adresse à des professionnels et n'est pas destiné aux personnes de moins de 16 ans. Nous ne collectons pas sciemment de données les concernant.</p>
+
+  <h2>Modifications</h2>
+  <p>Si cette politique évolue, la date en haut de page sera mise à jour. Un changement significatif vous sera signalé dans l'application.</p>
+
+  <h2>Nous contacter</h2>
+  <p>Pour toute question relative à vos données, utilisez le formulaire de la <a href="support.html">page d'assistance</a> d'Aumely. Votre demande nous parvient directement.</p>
+
+</main>
+
+<footer class="wrap">
+  Aumely — Votre activité, simplement.
+</footer>
+
+</body>
+</html>
