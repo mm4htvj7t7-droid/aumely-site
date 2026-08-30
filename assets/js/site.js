@@ -124,16 +124,24 @@
 
   /* ═══════════════════════════════════════════════════════════
      4. Formulaire de contact
-     Le message s'ouvre dans la messagerie du visiteur. L'adresse
-     de destination n'apparaît nulle part dans la page : elle est
-     reconstituée ici, uniquement au moment de l'envoi.
+
+     ADRESSE DE DESTINATION : la ligne `var boite` ci-dessous. Elle
+     vaut pour la page Contact ET pour la page Assistance.
+
+     Le formulaire n'envoie rien lui-même : un site statique n'a pas
+     de serveur pour cela. Il ouvre la messagerie du visiteur avec un
+     message déjà rédigé et déjà adressé ; c'est lui qui l'envoie.
+
+     L'adresse est écrite en deux morceaux réassemblés à l'exécution :
+     les robots qui aspirent les adresses dans le code des pages ne la
+     ramassent pas telle quelle.
      ═══════════════════════════════════════════════════════════ */
   function initFormulaire() {
     var formulaire = document.getElementById('formulaire-contact');
     if (!formulaire) return;
 
     var aide = document.getElementById('formulaire-aide');
-    var boite = ['aumely', 'outlook.fr'].join('@');
+    var boite = ['contact', 'aumely.com'].join('@');
 
     formulaire.addEventListener('submit', function (evenement) {
       evenement.preventDefault();
