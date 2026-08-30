@@ -661,7 +661,9 @@ body.menu-ouvert{ overflow: hidden; }
   position: relative;
   padding: 46px 0 0;
   background: linear-gradient(180deg, #FBFAFF 0%, var(--brume-2) 62%, #EAF0FF 100%);
-  overflow: hidden;
+  /* Surtout PAS d'overflow caché ici : le bas de l'appareil doit
+     déborder sur la bande suivante, c'est ce débordement qui invite à
+     défiler. Le halo, lui, est déjà borné par « left: 0; right: 0 ». */
 }
 .heros__halo{
   position: absolute;
@@ -1115,7 +1117,16 @@ a.ressource:hover{
 
 /* Le second appareil d'une scène à deux : décalé et abaissé, pour
    composer une scène plutôt qu'un alignement plat. */
-.tel--decale{ margin-left: -46px; margin-top: 44px; }
+.tel--decale{
+  margin-left: -30px;
+  margin-top: 46px;
+  /* L'ombre latérale détache l'appareil de celui qu'il recouvre :
+     sans elle, le premier avait l'air coupé au couteau. */
+  box-shadow:
+    -18px 20px 34px -20px rgba(15,14,28,.5),
+    0 44px 80px -30px rgba(15,14,28,.40),
+    0 12px 24px -12px rgba(15,14,28,.24);
+}
 @media (max-width: 619px){ .tel--decale{ margin: 0; } }
 
 
@@ -1142,7 +1153,15 @@ a.ressource:hover{
    largeur de l'écran. On le coupe au niveau de la section — `clip`
    plutôt que `hidden`, qui n'installe pas de conteneur de
    défilement et laisse donc l'en-tête collant fonctionner. */
-.section, .profil, .preuves, .heros, .chapeau{ overflow-x: clip; }
+/* ATTENTION : `overflow-x: clip` coupe AUSSI le débordement vertical
+   (la spec CSS ne laisse pas un axe en « visible » quand l'autre ne
+   l'est pas). On ne l'applique donc qu'aux sections qui n'ont rien à
+   faire dépasser — surtout pas au héros, dont l'appareil doit déborder
+   sur la bande suivante pour inviter à défiler. */
+.section, .profil, .preuves{ overflow-x: clip; }
+
+/* Le halo du héros est déjà borné par `left: 0; right: 0` : il ne
+   déborde pas horizontalement, la section n'a donc rien à couper. */
 
 
 /* ══════════════════════════════════════════════════════════════
