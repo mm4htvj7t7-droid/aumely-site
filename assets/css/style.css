@@ -196,6 +196,8 @@ a{ color: inherit; text-decoration: none; }
 .phone--pinned{ --ecran-l: min(300px, calc((100vh - 320px) / 2.25)); }
 .phone--small { --ecran-l: 186px; }
 
+.phone--hero{ will-change: transform, opacity; }
+
 .phone--dark{
   box-shadow:
     0 50px 100px -28px rgba(0,0,0,.75),
@@ -225,11 +227,11 @@ a{ color: inherit; text-decoration: none; }
    ══════════════════════════════════════════════════════════════ */
 .js .reveal{
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px);
   transition:
-    opacity   .9s var(--t-doux),
-    transform .9s var(--t-doux);
-  transition-delay: calc(var(--d, 0) * 90ms);
+    opacity   .72s var(--t-doux),
+    transform .72s var(--t-doux);
+  transition-delay: calc(var(--d, 0) * 75ms);
 }
 .reveal.is-in{ opacity: 1; transform: none; }
 

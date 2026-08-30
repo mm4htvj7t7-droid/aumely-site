@@ -182,7 +182,43 @@
   }
 
   /* ═══════════════════════════════════════════════════════════
-     5. Parallaxe discrète
+     5. Passation du héros
+     L'appareil d'ouverture s'éloigne doucement quand on quitte le
+     premier écran, au lieu de simplement défiler hors champ. C'est
+     ce mouvement qui donne l'impression de « passer la main » à la
+     section suivante.
+     ═══════════════════════════════════════════════════════════ */
+  function initHeros() {
+    var appareil = document.querySelector('.phone--hero');
+    var heros = document.querySelector('.hero');
+    if (!appareil || !heros) return;
+
+    if (mouvementReduit) return;
+
+    function placer() {
+      var hauteur = heros.offsetHeight;
+      if (hauteur <= 0) return;
+
+      // 0 en haut de page, 1 lorsque le héros est entièrement dépassé.
+      var avancement = window.scrollY / hauteur;
+      if (avancement < 0) avancement = 0;
+      if (avancement > 1) avancement = 1;
+
+      // Volontairement faible : l'appareil recule, il ne s'envole pas.
+      var recul   = avancement * 0.10;
+      var montee  = avancement * -46;
+      var opacite = 1 - avancement * 0.55;
+
+      appareil.style.transform =
+        'translate3d(0,' + montee.toFixed(1) + 'px,0) scale(' + (1 - recul).toFixed(4) + ')';
+      appareil.style.opacity = opacite.toFixed(3);
+    }
+
+    lierAuDefilement(placer);
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     6. Parallaxe discrète
      Quelques pixels seulement : de la profondeur, pas du mouvement.
      ═══════════════════════════════════════════════════════════ */
   function initParallaxe() {
@@ -248,6 +284,7 @@
     initApparitions();
     initBarre();
     initParcours();
+    initHeros();
     initParallaxe();
 
     window.addEventListener('scroll', planifier, { passive: true });
