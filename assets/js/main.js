@@ -6,13 +6,22 @@
 (function () {
   'use strict';
 
-  /* ───────────────────────────────────────────────────────────
-     À REMPLACER LE JOUR DE LA MISE EN LIGNE
-     L'adresse définitive de la fiche App Store d'Aumely.
-     Tant qu'elle vaut null, les boutons ramènent à la section
-     tarif : aucun lien mort, aucune promesse non tenue.
-     ─────────────────────────────────────────────────────────── */
-  var URL_APP_STORE = null;   // ex. 'https://apps.apple.com/fr/app/aumely/id0000000000'
+  /* ═══════════════════════════════════════════════════════════
+     LE SEUL RÉGLAGE À CHANGER LE JOUR DE LA PUBLICATION
+
+     Colle ici l'adresse de la fiche App Store d'Aumely, entre les
+     apostrophes, à la place de null. Exemple :
+
+       var URL_APP_STORE = 'https://apps.apple.com/fr/app/aumely/id1234567890';
+
+     Rien d'autre à modifier : les quatre boutons du site pointeront
+     alors tous vers cette adresse, et s'ouvriront dans un nouvel onglet.
+
+     Tant que la valeur reste null, aucun bouton ne ment : ils mènent à
+     la section tarif plutôt que vers un lien mort ou une fiche
+     inexistante.
+     ═══════════════════════════════════════════════════════════ */
+  var URL_APP_STORE = null;
 
   var mouvementReduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -21,13 +30,20 @@
      ═══════════════════════════════════════════════════════════ */
   function initLiensAppStore() {
     var liens = document.querySelectorAll('[data-appstore]');
+    var prete = typeof URL_APP_STORE === 'string' && URL_APP_STORE.indexOf('http') === 0;
+
     for (var i = 0; i < liens.length; i++) {
-      if (URL_APP_STORE) {
+      if (prete) {
         liens[i].href = URL_APP_STORE;
         liens[i].target = '_blank';
-        liens[i].rel = 'noopener';
+        liens[i].rel = 'noopener noreferrer';
+        liens[i].removeAttribute('aria-describedby');
       } else {
+        // Aucun lien mort tant que la fiche n'existe pas : on ramène
+        // simplement le visiteur à l'offre.
         liens[i].href = '#tarif';
+        liens[i].removeAttribute('target');
+        liens[i].removeAttribute('rel');
       }
     }
   }

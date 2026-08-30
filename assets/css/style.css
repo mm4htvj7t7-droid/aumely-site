@@ -340,8 +340,20 @@ a{ color: inherit; text-decoration: none; }
 
 .hero__actions{ margin-top: 30px; }
 .hero__price{
-  margin-top: 16px;
-  font-size: 14.5px;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+}
+.hero__price strong{
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--encre);
+  letter-spacing: -.01em;
+}
+.hero__price span{
+  font-size: 13.5px;
   font-weight: 600;
   color: var(--encre-3);
 }
@@ -665,7 +677,7 @@ a{ color: inherit; text-decoration: none; }
   margin-bottom: 16px;
 }
 .efacture__title{
-  font-size: clamp(2.3rem, 6.4vw, 4.2rem);
+  font-size: clamp(2.2rem, 5.4vw, 3.5rem);
   color: #fff;
 }
 .efacture__title em{
@@ -920,8 +932,20 @@ a{ color: inherit; text-decoration: none; }
   margin-bottom: 40px;
 }
 .outro__price{
-  margin-top: 18px;
-  font-size: 14.5px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+}
+.outro__price strong{
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--encre);
+  letter-spacing: -.01em;
+}
+.outro__price span{
+  font-size: 13.5px;
   font-weight: 600;
   color: var(--encre-3);
 }
@@ -994,3 +1018,18 @@ html:not(.js) .scroller__device .screen[data-step="0"]{ display: block; }
   font-size: .95rem;
   color: var(--encre-3);
 }
+
+
+/* Précision de portée sous la section facturation électronique : elle dit
+   ce qui n'est pas encore ouvert, donc surtout pas une coche de plus. */
+.efacture__precision{
+  margin-top: 22px;
+  max-width: 480px;
+  padding: 12px 16px;
+  border-left: 2px solid rgba(255,255,255,.22);
+  font-size: .92rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,.6);
+}
+.efacture__precision strong{ color: rgba(255,255,255,.9); font-weight: 700; }
+@media (min-width: 900px){ .efacture__precision{ margin-inline: 0; } }
