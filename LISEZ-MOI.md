@@ -1,30 +1,32 @@
-# Site de présentation Aumely — V2
+# Site Aumely — V3
 
-Version 2 du site, centrée sur le positionnement :
-**« L'application qui s'adapte à votre activité. »**
+Site multi-pages : accueil, fonctionnalités, pour qui, tarifs, ressources,
+FAQ, à propos, contact, assistance, confidentialité, page introuvable.
 
 ---
 
-## ⏪ Revenir à l'ancienne version (V1)
+## ⏪ Revenir à une version précédente
 
-Deux sauvegardes indépendantes existent. **Aucune n'a été supprimée.**
+**Rien n'a été supprimé.** Trois versions coexistent.
 
-**1. Copie complète du dossier** (la plus simple, aucune commande à
-comprendre) :
+| Version | Ce que c'était | Dossier de sauvegarde | Repère Git |
+|---|---|---|---|
+| **V1** | Page unique, « Votre activité. Clair. Simple. Serein. » | `~/Desktop/Aumely_Site_SAUVEGARDE_V1_20260830` | `v1-avant-refonte-20260830` |
+| **V2** | Page unique, « L'application qui s'adapte à votre activité » | `~/Desktop/Aumely_Site_SAUVEGARDE_V2_20260830` | `v2-avant-refonte-site-20260830` |
+| **V3** | Ce site multi-pages | — | `main` |
 
-    ~/Desktop/Aumely_Site_SAUVEGARDE_V1_20260830
+**Pour revenir en arrière**, le plus simple est de le demander :
+« Reviens à la V2 » ou « Reviens à l'ancienne version ».
 
-C'est le site tel qu'il était avant la V2, fichier pour fichier.
-Pour revenir dessus : renommer `Aumely_Site` en `Aumely_Site_V2`, puis
-renommer la sauvegarde en `Aumely_Site`.
+À la main, avec le dossier : renommer `Aumely_Site` en `Aumely_Site_V3`,
+puis renommer la sauvegarde voulue en `Aumely_Site`.
 
-**2. Repère dans l'historique Git**, à l'intérieur du dossier du site :
+À la main, avec Git, depuis le dossier du site :
 
-    git checkout v1-avant-refonte-20260830 -- .
+    git checkout v2-avant-refonte-site-20260830 -- .
 
-La branche `version-v1-sauvegarde` pointe elle aussi sur cette même version.
-
-Il suffit donc de dire à Claude : **« Reviens à l'ancienne version »**.
+Les branches `version-v1-sauvegarde` et `version-v2-sauvegarde` pointent
+sur ces mêmes versions, et sont aussi sur GitHub.
 
 ---
 
@@ -34,83 +36,106 @@ Depuis ce dossier :
 
     python3 -m http.server 8080
 
-Puis ouvrir http://localhost:8080 dans un navigateur.
-Pour arrêter : Ctrl-C dans le Terminal.
+Puis ouvrir http://localhost:8080
 
 ---
 
-## Le parcours de la page
+## ⚠️ Modifier le site : passer par `_source/`
 
-La page raconte une histoire, dans cet ordre :
+Les pages HTML à la racine sont **fabriquées**. Les modifier directement
+serait écrasé à la prochaine construction.
 
-1. **Héros** — Aumely s'adapte à votre activité.
-2. **Votre métier** — artisan, commerce et e-commerce, profession libérale,
-   agriculture. L'iPhone reste épinglé et son écran d'accueil change de métier
-   au fil du défilement.
-3. **Dix choses à gérer** — les neuf outils réunis dans une seule application.
-4. **Les fonctionnalités** — recettes, dépenses, clients, rendez-vous,
-   devis et factures, en parcours épinglé.
-5. **Une facture qui vous ressemble** — le logo de l'entreprise.
-6. **Analyses** — la vision claire de l'activité.
-7. **Facturation électronique** — importante, mais une brique parmi d'autres.
-8. **Tarif** — 4,99 €/mois, 14 jours gratuits, sans engagement.
-9. **Conclusion** — Votre activité. Clair. Simple. Serein.
+    _source/gabarit.html   ← l'en-tête, le menu, le pied de page, le
+                             dernier appel à l'action. Écrits UNE fois,
+                             pour les onze pages.
+    _source/pages/*.html   ← le contenu propre à chaque page.
+
+Après toute modification :
+
+    python3 construire-site.py
+
+Le script réécrit les pages finies à la racine. Ce sont elles qui sont
+publiées.
+
+**Pourquoi ce détour ?** Sans lui, la navigation existerait en onze
+exemplaires, et un changement de menu obligerait à corriger onze fichiers.
+Un menu désynchronisé d'une page à l'autre est exactement ce qui fait
+« site bricolé ».
+
+### En-tête d'une page source
+
+    titre: Tarifs — Aumely, 4,99 € par mois
+    description: Une phrase pour Google et pour les partages.
+    fichier: tarifs.html
+    onglet: ressources        (facultatif — quel onglet du menu s'allume)
+    ---
+    <section> … le contenu … </section>
 
 ---
 
-## Ce qu'il y a dedans
+## À faire le jour de la publication sur l'App Store
 
-    index.html            la page entière
-    assets/css/style.css  toute la mise en forme
-    assets/js/main.js     les animations au défilement
-    assets/img/           les captures d'écran de l'application
-    assets/icon/          l'icône de l'application
+**Une seule ligne à changer**, en haut de `assets/js/site.js` :
 
-Aucune bibliothèque extérieure, aucune étape de compilation : on modifie un
-fichier, on recharge la page. La seule ressource distante est la police
-(Google Fonts).
+    var URL_APP_STORE = null;
+
+Y coller l'adresse de la fiche App Store. Tous les boutons du site, sur
+toutes les pages, y conduiront alors dans un nouvel onglet.
+
+Ensuite, retirer l'encadré « Aumely arrive sur l'App Store » dans
+`_source/pages/tarifs.html` (il est repérable, entouré d'un commentaire),
+puis relancer `python3 construire-site.py`.
+
+Tant que la valeur reste `null`, aucun bouton ne mène à un lien mort :
+ils ramènent à la page Tarifs, et sur cette page à l'encadré qui explique
+où en est la mise en ligne.
+
+---
+
+## Les deux pages exigées par Apple
+
+`confidentialite.html` et `support.html` sont déclarées dans App Store
+Connect. Elles gardent leurs adresses et restent accessibles.
+
+- **Confidentialité** : le texte a été repris **au caractère près**,
+  seule la mise en page a changé. Vérifié par comparaison automatique.
+- **Assistance** : le formulaire de contact fonctionne à l'identique
+  (il ouvre un message dans la messagerie du visiteur, adressé à
+  `aumely@outlook.fr`, adresse qui n'apparaît jamais à l'écran).
+  La page a gagné une rubrique « Avant de nous écrire ».
+
+Ne jamais supprimer ces deux fichiers ni changer leur nom.
 
 ---
 
 ## Les captures d'écran
 
-Les PNG d'`assets/img/` sont les **fichiers d'origine, intacts** (1206 × 2622).
-Leur contenu n'a jamais été retouché : aucun texte, aucun chiffre, aucune
-icône, aucune couleur n'a été changé.
+Les PNG d'`assets/img/` sont les **fichiers d'origine** de l'application
+(1206 × 2622). Aucun contenu n'a été retouché : ni texte, ni chiffre, ni
+icône, ni couleur.
 
-À côté de chaque PNG se trouve un `.webp` : la **même image, réduite
+À côté de chaque PNG, un `.webp` : la **même image réduite
 proportionnellement à 800 px de large**, servie aux navigateurs qui la
-comprennent (la quasi-totalité). C'est deux fois la taille d'affichage réelle,
-donc net sur écran retina, et cela fait passer le poids de la page de 4,5 Mo à
-**816 Ko** — dont seulement **173 Ko pour le premier écran**.
+comprennent — soit la quasi-totalité. C'est deux fois la taille
+d'affichage, donc net sur écran retina.
 
-Pour changer une capture : remplacer le PNG dans `assets/img/` en gardant le
-même nom, régénérer le WebP correspondant, et mettre à jour son texte
-alternatif dans `index.html`.
+Résultat : la page la plus lourde du site fait **559 Ko**, et le premier
+écran de l'accueil environ **150 Ko**.
 
----
-
-## À faire avant la mise en ligne
-
-1. **Lien App Store** — ouvrir `assets/js/main.js`, tout en haut :
-
-       var URL_APP_STORE = null;
-
-   Y mettre l'adresse réelle de la fiche App Store. Tant que la valeur est
-   `null`, les cinq boutons du site renvoient vers la section tarif plutôt que
-   vers un lien mort. **C'est le seul réglage à changer le jour de la
-   publication.**
-
-2. **Domaine** — le fichier `CNAME.a-activer-apres-dns` contient `aumely.com`.
-   Le renommer en `CNAME` une fois les DNS basculés chez OVH.
+Pour remplacer une capture : déposer le nouveau PNG sous le même nom,
+régénérer le WebP correspondant, et mettre à jour son texte alternatif
+dans la page source.
 
 ---
 
-## Envoyer le prototype à quelqu'un
+## Ce que le site ne fait pas (et pourquoi)
 
-    python3 construire-fichier-unique.py
-
-Crée `~/Desktop/Aumely_Prototype.html` : un seul fichier contenant la page,
-les styles, les animations et les captures. À envoyer par mail, AirDrop ou
-WeTransfer. La personne double-clique dessus et la page s'ouvre dans son
-navigateur — aucun compte, aucun serveur, aucune installation.
+- **Pas de bouton « Se connecter »** : Aumely n'a pas d'espace client sur
+  le web. Le compte se gère dans l'application. Un bouton qui mène à une
+  page vide fait plus de mal qu'il ne rassure.
+- **Pas d'articles de blog inventés** : la rubrique Ressources annonce
+  ce qui est en préparation plutôt que de se remplir de textes creux.
+- **Aucune fonctionnalité annoncée qui n'existe pas.** Chaque affirmation
+  du site a été vérifiée dans le code de l'application. Ce qui n'est pas
+  encore ouvert — l'émission des factures électroniques, une version Mac —
+  est écrit noir sur blanc.

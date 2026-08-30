@@ -1,14 +1,11 @@
-# Site de présentation Aumely
+# Site Aumely
 
-Site d'une seule page, sans dépendance ni étape de compilation :
-`index.html`, `assets/css/style.css`, `assets/js/main.js` et les captures
-d'écran de l'application dans `assets/img/`.
+Site multi-pages statique : onze pages, aucune dépendance, aucun
+framework. Fabriqué à partir de `_source/` par `construire-site.py`.
 
-**V2** — positionnement : « L'application qui s'adapte à votre activité. »
-La version précédente reste disponible (voir `LISEZ-MOI.md`, section
-« Revenir à l'ancienne version »).
+**Modifier le site : passer par `_source/`, jamais par les HTML de la
+racine** — ils sont réécrits à chaque construction. Voir `LISEZ-MOI.md`.
 
-Ce dépôt porte aussi `confidentialite.html` et `support.html`, les deux pages
-exigées par Apple et déclarées dans App Store Connect. Ne jamais les écraser.
-
-Voir `LISEZ-MOI.md` pour le détail et ce qu'il reste à faire.
+Ce dépôt porte aussi `confidentialite.html` et `support.html`, les deux
+pages déclarées dans App Store Connect. Ne jamais les supprimer ni
+changer leur nom.

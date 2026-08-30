@@ -1,0 +1,155 @@
+titre: Assistance — Aumely
+description: Besoin d’aide avec Aumely ? Les difficultés les plus courantes, la marche à suivre, et un formulaire pour nous écrire directement.
+onglet: ressources
+fichier: support.html
+---
+  <section class="chapeau">
+    <div class="zone chapeau__zone">
+      <span class="sur-titre monte">Assistance</span>
+      <h1 class="monte" data-d="1">Aumely — Assistance</h1>
+      <p class="chapeau__lead monte" data-d="2">
+        Une question, un problème ou besoin d’aide avec Aumely&nbsp;?
+        Notre équipe est à votre disposition.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       LES DIFFICULTÉS LES PLUS COURANTES
+       Chaque réponse décrit l'application telle qu'elle fonctionne.
+       ══════════════════════════════════════════════════════════ -->
+  <section class="section" style="padding-top: 26px;" aria-labelledby="courant-titre">
+    <div class="zone">
+      <div class="section__tete">
+        <h2 class="monte" id="courant-titre">Avant de nous écrire</h2>
+        <p class="monte" data-d="1">
+          Ces quelques situations reviennent souvent. La réponse est peut-être
+          déjà là.
+        </p>
+      </div>
+
+      <div class="faq monte">
+        <details class="question">
+          <summary>Mes données ont-elles disparu si je change de téléphone&nbsp;?</summary>
+          <div class="question__reponse">
+            <p>Vos données sont enregistrées sur votre iPhone et sauvegardées
+               par votre compte iCloud, s’il est actif sur l’appareil. En
+               installant Aumely sur un nouvel iPhone connecté au même compte
+               iCloud, vous les retrouvez.</p>
+            <p>Sans compte iCloud actif, les données restent sur l’ancien
+               appareil uniquement. L’écran <strong>Compte</strong> de l’application
+               vous indique si la sauvegarde est active.</p>
+          </div>
+        </details>
+
+        <details class="question">
+          <summary>Se déconnecter efface-t-il mes recettes et mes factures&nbsp;?</summary>
+          <div class="question__reponse">
+            <p>Non. Vos recettes, dépenses et factures restent sur l’appareil :
+               se déconnecter ne supprime rien.</p>
+            <p>C’est la suppression du compte, elle, qui efface définitivement
+               vos données — l’application vous en avertit avant.</p>
+          </div>
+        </details>
+
+        <details class="question">
+          <summary>Mon logo n’apparaît pas sur mes factures</summary>
+          <div class="question__reponse">
+            <p>Le logo se règle dans le profil de votre entreprise, avec vos
+               coordonnées, votre SIRET, votre numéro de TVA et votre IBAN. Les
+               documents créés après ce réglage le reprennent en haut de page.</p>
+          </div>
+        </details>
+
+        <details class="question">
+          <summary>Je ne reçois pas les notifications</summary>
+          <div class="question__reponse">
+            <p>Les notifications se règlent dans l’écran <strong>Compte</strong> de
+               l’application, puis dans les réglages de votre iPhone si vous
+               les aviez refusées la première fois.</p>
+            <p>Aumely n’envoie que l’essentiel : une échéance importante ou un
+               changement de règle qui vous concerne. Jamais de publicité.</p>
+          </div>
+        </details>
+
+        <details class="question">
+          <summary>Comment résilier mon abonnement&nbsp;?</summary>
+          <div class="question__reponse">
+            <p>Depuis les réglages de votre iPhone, dans la gestion de vos
+               abonnements App Store. La résiliation est immédiate, sans
+               préavis et sans démarche auprès de nous.</p>
+            <p>Nous n’avons pas accès à votre facturation Apple : pour un
+               remboursement, la demande se fait auprès d’Apple.</p>
+          </div>
+        </details>
+
+        <details class="question">
+          <summary>L’application ne s’ouvre pas ou se ferme toute seule</summary>
+          <div class="question__reponse">
+            <p>Vérifiez d’abord que votre iPhone est à jour (Aumely demande iOS
+               17 ou plus récent) et que l’application est dans sa dernière
+               version.</p>
+            <p>Si le problème persiste, écrivez-nous ci-dessous en précisant le
+               modèle de votre iPhone, sa version d’iOS et l’écran concerné.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="actions actions--centre monte" style="margin-top: 30px;">
+        <a class="bouton bouton--clair" href="faq.html">Voir toutes les questions fréquentes</a>
+        <a class="bouton bouton--clair" href="ressources.html#demarrage">Guide de démarrage</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FORMULAIRE
+       ══════════════════════════════════════════════════════════ -->
+  <section class="section section--brume" id="contact" aria-labelledby="ecrire-titre">
+    <div class="zone">
+      <div class="section__tete">
+        <h2 class="monte" id="ecrire-titre">Nous contacter</h2>
+        <p class="monte" data-d="1">
+          Remplissez ce formulaire&nbsp;: votre message s’ouvrira dans votre
+          application de messagerie, déjà adressé à notre équipe.
+        </p>
+      </div>
+
+      <form class="formulaire monte" id="formulaire-contact" novalidate>
+        <div class="champ">
+          <label for="sujet">Sujet</label>
+          <input type="text" id="sujet" name="sujet" required autocomplete="off"
+                 placeholder="Ex. : Problème à la connexion">
+        </div>
+
+        <div class="champ">
+          <label for="email">Votre adresse e-mail</label>
+          <input type="email" id="email" name="email" required
+                 autocomplete="email" inputmode="email"
+                 placeholder="Pour que nous puissions vous répondre">
+        </div>
+
+        <div class="champ">
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" required
+                    placeholder="Décrivez votre question ou le problème rencontré."></textarea>
+        </div>
+
+        <p class="formulaire__aide" id="formulaire-aide" role="status" aria-live="polite"></p>
+
+        <button class="bouton bouton--degrade bouton--grand bouton--pleine-largeur" type="submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 5.5h16v13H4z"/><path d="M4 6.5l8 6 8-6"/>
+          </svg>
+          Envoyer
+        </button>
+      </form>
+
+      <p class="monte" style="margin-top: 20px; text-align: center; font-size: .92rem; color: var(--encre-3);">
+        Aumely est une application de gestion destinée aux indépendants.
+      </p>
+    </div>
+  </section>

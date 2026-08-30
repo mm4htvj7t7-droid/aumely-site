@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr" data-racine="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{TITRE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+
+<link rel="canonical" href="https://aumely.com/{{FICHIER}}">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Aumely">
+<meta property="og:url" content="https://aumely.com/{{FICHIER}}">
+<meta property="og:title" content="{{TITRE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:image" content="https://aumely.com/assets/img/apercu-partage.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Aumely — l’application de gestion qui s’adapte à votre activité.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{TITRE}}">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+<meta name="twitter:image" content="https://aumely.com/assets/img/apercu-partage.png">
+
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-title" content="Aumely">
+
+<link rel="icon" href="assets/icon/aumely-icon-320.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/icon/aumely-icon-320.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap">
+{{PRECHARGEMENT}}
+<!-- Signale que JavaScript est disponible. Sans cette classe, la feuille de
+     style ne masque RIEN : la page reste entièrement lisible dans les
+     aperçus qui n'exécutent pas de script. Les animations sont un bonus,
+     jamais une condition d'affichage. -->
+<script>document.documentElement.className += " js";</script>
+
+<link rel="stylesheet" href="assets/css/site.css">
+{{DONNEES_STRUCTUREES}}
+</head>
+<body>
+
+<a class="saut" href="#contenu">Aller au contenu</a>
+
+<header class="entete">
+  <div class="entete__inner">
+    <a class="marque" href="index.html" aria-label="Aumely, accueil">
+      <picture>
+        <source srcset="assets/icon/aumely-icon.webp" type="image/webp">
+        <img src="assets/icon/aumely-icon-320.png" alt="" width="30" height="30">
+      </picture>
+      <span>Aumely</span>
+    </a>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html"{{ACTIF_index}}>Accueil</a>
+      <a href="fonctionnalites.html"{{ACTIF_fonctionnalites}}>Fonctionnalités</a>
+      <a href="pour-qui.html"{{ACTIF_pour-qui}}>Pour qui&nbsp;?</a>
+      <a href="tarifs.html"{{ACTIF_tarifs}}>Tarifs</a>
+      <a href="ressources.html"{{ACTIF_ressources}}>Ressources</a>
+      <a href="a-propos.html"{{ACTIF_a-propos}}>À propos</a>
+      <a href="contact.html"{{ACTIF_contact}}>Contact</a>
+    </nav>
+
+    <div class="entete__actions">
+      <a class="bouton bouton--degrade bouton--petit" data-appstore href="tarifs.html">
+        <!-- « Commencer gratuitement » ne tient pas dans une barre de
+             375 px à côté du logo et du menu : le libellé se raccourcit,
+             le sens reste. -->
+        <span class="cta-long">Commencer gratuitement</span>
+        <span class="cta-court">Essayer</span>
+      </a>
+      <button class="burger" id="burger" type="button"
+              aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <a href="index.html"{{ACTIF_index}}>Accueil</a>
+  <a href="fonctionnalites.html"{{ACTIF_fonctionnalites}}>Fonctionnalités</a>
+  <a href="pour-qui.html"{{ACTIF_pour-qui}}>Pour qui&nbsp;?</a>
+  <a href="tarifs.html"{{ACTIF_tarifs}}>Tarifs</a>
+  <a href="ressources.html"{{ACTIF_ressources}}>Ressources</a>
+  <a href="a-propos.html"{{ACTIF_a-propos}}>À propos</a>
+  <a href="contact.html"{{ACTIF_contact}}>Contact</a>
+  <a class="bouton bouton--degrade bouton--grand" data-appstore href="tarifs.html">
+    Commencer gratuitement
+  </a>
+  <p class="menu__pied">14 jours gratuits · Sans engagement · 4,99 €/mois ensuite</p>
+</div>
+
+<main id="contenu">
+{{CONTENU}}
+
+<!-- ══════════════════════════════════════════════════════════
+     Dernier appel à l'action, commun à toutes les pages
+     ══════════════════════════════════════════════════════════ -->
+<section class="rappel">
+  <div class="rappel__halo" aria-hidden="true"></div>
+  <div class="zone rappel__zone">
+    <h2 class="monte">Votre activité.<br><em>Clair. Simple. Serein.</em></h2>
+    <p class="monte" data-d="1">
+      Un seul outil, tous les métiers. Essayez Aumely pendant 14 jours,
+      sans engagement.
+    </p>
+    <div class="actions actions--centre monte" data-d="2">
+      <a class="bouton bouton--degrade bouton--grand" data-appstore href="tarifs.html">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.462 2.12-1.152 2.86-.744.797-1.96 1.41-2.98 1.33-.114-1.1.42-2.24 1.128-2.98.774-.82 2.12-1.42 3.004-1.21zM20.9 17.36c-.53 1.22-.78 1.77-1.46 2.85-.95 1.5-2.29 3.37-3.95 3.38-1.47.02-1.85-.96-3.84-.95-1.99.01-2.41.97-3.88.95-1.66-.02-2.93-1.7-3.88-3.2C1.4 16.9.75 12.9 2.5 10.2c1.24-1.9 3.2-3.03 5.04-3.03 1.88 0 3.06 1.03 4.61 1.03 1.5 0 2.42-1.03 4.6-1.03 1.64 0 3.38.9 4.6 2.44-4.05 2.22-3.39 8-.45 7.75z"/></svg>
+        Commencer gratuitement
+      </a>
+      <p class="mention">4,99 €/mois après l’essai · Résiliable à tout moment</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pied">
+  <div class="zone">
+    <div class="pied__grille">
+      <div class="pied__marque">
+        <a class="marque" href="index.html">
+          <picture>
+            <source srcset="assets/icon/aumely-icon.webp" type="image/webp">
+            <img src="assets/icon/aumely-icon-320.png" alt="" width="30" height="30">
+          </picture>
+          <span>Aumely</span>
+        </a>
+        <p class="pied__signature">
+          L’application de gestion qui s’adapte à votre activité.
+          Un seul outil, tous les métiers.
+        </p>
+      </div>
+
+      <div>
+        <h2>Produit</h2>
+        <nav aria-label="Produit">
+          <a href="fonctionnalites.html">Fonctionnalités</a>
+          <a href="pour-qui.html">Pour qui&nbsp;?</a>
+          <a href="tarifs.html">Tarifs</a>
+        </nav>
+      </div>
+
+      <div>
+        <h2>Ressources</h2>
+        <nav aria-label="Ressources">
+          <a href="ressources.html">Centre de ressources</a>
+          <a href="faq.html">Questions fréquentes</a>
+          <a href="ressources.html#demarrage">Guide de démarrage</a>
+          <a href="support.html">Assistance</a>
+        </nav>
+      </div>
+
+      <div>
+        <h2>Aumely</h2>
+        <nav aria-label="À propos d’Aumely">
+          <a href="a-propos.html">À propos</a>
+          <a href="contact.html">Contact</a>
+          <a href="confidentialite.html">Confidentialité</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="pied__bas">
+      <span>© 2026 Aumely — Application iPhone pour les indépendants.</span>
+      <span>4,99 €/mois · 14 jours gratuits · Sans engagement</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
