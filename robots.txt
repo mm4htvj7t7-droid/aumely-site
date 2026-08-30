@@ -1,3 +1,4 @@
-# Prototype en cours de validation : ne pas indexer.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://aumely.com/sitemap.xml

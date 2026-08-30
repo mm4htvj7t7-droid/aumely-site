@@ -155,6 +155,10 @@ a{ color: inherit; text-decoration: none; }
   overflow: hidden;
   background: #f2f2f7;
 }
+/* <picture> ne doit générer aucune boîte : l'image reste l'enfant direct
+   de l'écran, sans décalage de ligne de base ni changement de contexte. */
+.phone__screen picture{ display: contents; }
+
 .phone__screen img{
   width: 100%; height: 100%;
   object-fit: cover;                              /* jamais de déformation */
@@ -177,7 +181,7 @@ a{ color: inherit; text-decoration: none; }
 .phone--hero  { --ecran-l: 292px; }
 .phone--big   { --ecran-l: 330px; }
 .phone--medium{ --ecran-l: 292px; }
-.phone--pinned{ --ecran-l: min(300px, calc((100svh - 320px) / 2.25)); }
+.phone--pinned{ --ecran-l: min(300px, calc((100vh - 320px) / 2.25)); }
 .phone--small { --ecran-l: 186px; }
 
 .phone--dark{
@@ -190,8 +194,17 @@ a{ color: inherit; text-decoration: none; }
   .phone--hero  { --ecran-l: 302px; }
   .phone--big   { --ecran-l: 380px; }
   .phone--medium{ --ecran-l: 330px; }
-  .phone--pinned{ --ecran-l: min(340px, calc((100svh - 170px) / 2.25)); }
+  .phone--pinned{ --ecran-l: min(340px, calc((100vh - 170px) / 2.25)); }
   .phone--small { --ecran-l: 218px; }
+}
+
+/* « svh » quand le navigateur le connaît : évite que la barre d'adresse
+   mobile ne fasse déborder l'appareil épinglé. */
+@supports (height: 100svh){
+  .phone--pinned{ --ecran-l: min(300px, calc((100svh - 320px) / 2.25)); }
+  @media (min-width: 900px){
+    .phone--pinned{ --ecran-l: min(340px, calc((100svh - 170px) / 2.25)); }
+  }
 }
 
 
@@ -268,6 +281,7 @@ a{ color: inherit; text-decoration: none; }
    ══════════════════════════════════════════════════════════════ */
 .hero{
   position: relative;
+  min-height: 100vh;
   min-height: 100svh;
   padding: 84px 24px 60px;
   display: flex;
@@ -440,6 +454,7 @@ a{ color: inherit; text-decoration: none; }
 .scroller__stage{
   position: sticky;
   top: 0;
+  height: 100vh;
   height: 100svh;
   display: flex;
   align-items: center;
@@ -450,7 +465,7 @@ a{ color: inherit; text-decoration: none; }
 
 /* La piste donne sa hauteur à la section : une zone par étape. */
 .scroller__track{ position: relative; }
-.scroller__seg{ height: 90svh; }
+.scroller__seg{ height: 90vh; height: 90svh; }
 
 .scroller__grid{
   display: flex;
@@ -531,7 +546,7 @@ a{ color: inherit; text-decoration: none; }
 
 @media (min-width: 900px){
   .scroller{ padding-top: 220px; }
-  .scroller__seg{ height: 100svh; }
+  .scroller__seg{ height: 100vh; height: 100svh; }
   .scroller__grid{
     flex-direction: row;
     justify-content: space-between;

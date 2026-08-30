@@ -4,16 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Aumely — Toute votre activité, au même endroit</title>
-<meta name="description" content="Aumely réunit votre livre des recettes, vos dépenses, vos clients, vos rendez-vous, vos devis et vos factures dans une seule application. Facturation électronique intégrée. 4,99 €/mois, 14 jours d'essai gratuit sans engagement.">
+<title>Aumely — L'application tout-en-un des indépendants</title>
+<meta name="description" content="Aumely réunit le livre des recettes, les dépenses, les clients, les rendez-vous, les devis et les factures dans une seule application iPhone. Facturation électronique intégrée. 4,99 €/mois, 14 jours d'essai gratuit sans engagement.">
+
+<link rel="canonical" href="https://aumely.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Aumely">
-<meta property="og:title" content="Aumely — Toute votre activité, au même endroit">
-<meta property="og:description" content="L'application qui réunit recettes, dépenses, clients, rendez-vous, devis et factures. Facturation électronique intégrée. 4,99 €/mois.">
-<meta property="og:image" content="assets/icon/aumely-icon.png">
+<meta property="og:url" content="https://aumely.com/">
+<meta property="og:title" content="Aumely — L'application tout-en-un des indépendants">
+<meta property="og:description" content="Livre des recettes, dépenses, clients, rendez-vous, devis, factures et facturation électronique. Toute votre activité, au même endroit. 4,99 €/mois, 14 jours gratuits.">
+<meta property="og:image" content="https://aumely.com/assets/img/apercu-partage.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Aumely — toute votre activité, au même endroit.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aumely — L'application tout-en-un des indépendants">
+<meta name="twitter:description" content="Livre des recettes, dépenses, clients, rendez-vous, devis, factures et facturation électronique. 4,99 €/mois, 14 jours gratuits.">
+<meta name="twitter:image" content="https://aumely.com/assets/img/apercu-partage.png">
+
 <meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-title" content="Aumely">
 
 <link rel="icon" href="assets/icon/aumely-icon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/icon/aumely-icon.png">
@@ -89,9 +102,12 @@
     <div class="hero__device reveal" data-delay="4">
       <div class="phone phone--hero" data-parallax="0.05">
         <div class="phone__screen">
-          <img src="assets/img/accueil.png"
+          <picture>
+               <source srcset="assets/img/accueil.webp" type="image/webp">
+               <img src="assets/img/accueil.png"
                alt="Écran d'accueil d'Aumely : activité du mois, rendez-vous à venir et factures en attente."
                width="1206" height="2622" fetchpriority="high" decoding="async">
+             </picture>
         </div>
       </div>
     </div>
@@ -143,9 +159,12 @@
       <div class="answer__device reveal" data-delay="2">
         <div class="phone phone--big" data-parallax="0.04">
           <div class="phone__screen">
-            <img src="assets/img/accueil.png"
+            <picture>
+               <source srcset="assets/img/accueil.webp" type="image/webp">
+               <img src="assets/img/accueil.png"
                  alt="Tableau de bord Aumely : entrées, dépenses et résultat du mois, rendez-vous de la semaine, factures en attente de paiement."
                  width="1206" height="2622" loading="lazy" decoding="async">
+             </picture>
           </div>
         </div>
       </div>
@@ -217,21 +236,36 @@
         <div class="scroller__device">
           <div class="phone phone--pinned">
             <div class="phone__screen">
-              <img class="screen" data-step="0" src="assets/img/recettes.png"
+              <picture>
+               <source srcset="assets/img/recettes.webp" type="image/webp">
+               <img class="screen" data-step="0" src="assets/img/recettes.png"
                    alt="Écran Recettes d'Aumely : total des recettes et liste des encaissements par canal."
                    width="1206" height="2622" loading="lazy" decoding="async">
-              <img class="screen" data-step="1" src="assets/img/depenses.png"
+             </picture>
+              <picture>
+               <source srcset="assets/img/depenses.webp" type="image/webp">
+               <img class="screen" data-step="1" src="assets/img/depenses.png"
                    alt="Écran Dépenses d'Aumely : total des dépenses et liste détaillée par catégorie."
                    width="1206" height="2622" loading="lazy" decoding="async">
-              <img class="screen" data-step="2" src="assets/img/clients.png"
+             </picture>
+              <picture>
+               <source srcset="assets/img/clients.webp" type="image/webp">
+               <img class="screen" data-step="2" src="assets/img/clients.png"
                    alt="Fiche client Aumely : coordonnées, notes, raccourcis devis, facture et rendez-vous, et historique des documents."
                    width="1206" height="2622" loading="lazy" decoding="async">
-              <img class="screen" data-step="3" src="assets/img/rendezvous.png"
+             </picture>
+              <picture>
+               <source srcset="assets/img/rendezvous.webp" type="image/webp">
+               <img class="screen" data-step="3" src="assets/img/rendezvous.png"
                    alt="Écran Rendez-vous d'Aumely : rendez-vous à venir et passés, rattachés à chaque client."
                    width="1206" height="2622" loading="lazy" decoding="async">
-              <img class="screen" data-step="4" src="assets/img/factures.png"
+             </picture>
+              <picture>
+               <source srcset="assets/img/factures.webp" type="image/webp">
+               <img class="screen" data-step="4" src="assets/img/factures.png"
                    alt="Écran Factures d'Aumely : liste des factures avec leur client, leur montant et leur statut."
                    width="1206" height="2622" loading="lazy" decoding="async">
+             </picture>
             </div>
           </div>
 
@@ -272,9 +306,12 @@
       <div class="document__device reveal" data-delay="2">
         <div class="phone phone--medium" data-parallax="0.03">
           <div class="phone__screen">
-            <img src="assets/img/facture-pdf.png"
+            <picture>
+               <source srcset="assets/img/facture-pdf.webp" type="image/webp">
+               <img src="assets/img/facture-pdf.png"
                  alt="Aperçu du PDF d'une facture Aumely : émetteur, client, lignes, TVA et total TTC, avec le bouton Partager le PDF."
                  width="1206" height="2622" loading="lazy" decoding="async">
+             </picture>
           </div>
         </div>
       </div>
@@ -309,9 +346,12 @@
       <div class="efacture__device reveal" data-delay="2">
         <div class="phone phone--medium phone--dark" data-parallax="0.05">
           <div class="phone__screen">
-            <img src="assets/img/facturation-electronique.png"
+            <picture>
+               <source srcset="assets/img/facturation-electronique.webp" type="image/webp">
+               <img src="assets/img/facturation-electronique.png"
                  alt="Écran Facturation électronique d'Aumely : recevez vos factures fournisseurs directement dans l'application, avec le bouton Activer la facturation électronique."
                  width="1206" height="2622" loading="lazy" decoding="async">
+             </picture>
           </div>
         </div>
       </div>
@@ -341,16 +381,22 @@
       <div class="analyses__devices">
         <div class="phone phone--medium reveal" data-delay="2" data-parallax="0.06">
           <div class="phone__screen">
-            <img src="assets/img/analyses.png"
+            <picture>
+               <source srcset="assets/img/analyses.webp" type="image/webp">
+               <img src="assets/img/analyses.png"
                  alt="Écran Analyses d'Aumely : chiffre d'affaires, dépenses et résultat avec leur évolution, suivis des points clés."
                  width="1206" height="2622" loading="lazy" decoding="async">
+             </picture>
           </div>
         </div>
         <div class="phone phone--medium reveal" data-delay="3" data-parallax="0.02">
           <div class="phone__screen">
-            <img src="assets/img/analyses-graph.png"
+            <picture>
+               <source srcset="assets/img/analyses-graph.webp" type="image/webp">
+               <img src="assets/img/analyses-graph.png"
                  alt="Graphiques d'Aumely : courbe d'évolution des entrées et sorties, prévision de fin de mois et répartition du chiffre d'affaires par canal."
                  width="1206" height="2622" loading="lazy" decoding="async">
+             </picture>
           </div>
         </div>
       </div>
@@ -382,23 +428,32 @@
       <div class="profils__devices">
         <div class="phone phone--small reveal" data-delay="3">
           <div class="phone__screen">
-            <img src="assets/img/profil-artisan.png"
+            <picture>
+               <source srcset="assets/img/profil-artisan.webp" type="image/webp">
+               <img src="assets/img/profil-artisan.png"
                  alt="Accueil d'Aumely configuré pour un artisan, avec le suivi des projets."
                  width="1206" height="2622" loading="lazy" decoding="async">
+             </picture>
           </div>
         </div>
         <div class="phone phone--small reveal" data-delay="4">
           <div class="phone__screen">
-            <img src="assets/img/profil-commerce.png"
+            <picture>
+               <source srcset="assets/img/profil-commerce.webp" type="image/webp">
+               <img src="assets/img/profil-commerce.png"
                  alt="Accueil d'Aumely configuré pour un commerce, avec la répartition des ventes."
                  width="1206" height="2622" loading="lazy" decoding="async">
+             </picture>
           </div>
         </div>
         <div class="phone phone--small reveal" data-delay="5">
           <div class="phone__screen">
-            <img src="assets/img/profil-agricole.png"
+            <picture>
+               <source srcset="assets/img/profil-agricole.webp" type="image/webp">
+               <img src="assets/img/profil-agricole.png"
                  alt="Accueil d'Aumely configuré pour une activité agricole."
                  width="1206" height="2622" loading="lazy" decoding="async">
+             </picture>
           </div>
         </div>
       </div>
@@ -461,9 +516,8 @@
   <div class="wrap footer__inner">
     <p>© 2026 Aumely</p>
     <nav aria-label="Liens légaux">
-      <a href="#">Mentions légales</a>
-      <a href="#">Confidentialité</a>
-      <a href="#">Assistance</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="support.html">Assistance</a>
     </nav>
   </div>
 </footer>
