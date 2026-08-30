@@ -71,7 +71,11 @@
         entree.target.classList.add('is-in');
         observateur.unobserve(entree.target);   // une seule fois : pas de clignotement
       });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+      // Un seuil en pourcentage laisserait de côté les éléments plus hauts
+      // que l'écran — un iPhone en pied de héros n'en montre jamais 12 %.
+      // On déclenche donc dès qu'un élément est entré d'une centaine de
+      // pixels, quelle que soit sa taille.
+    }, { rootMargin: '0px 0px -90px 0px', threshold: 0 });
 
     for (var k = 0; k < elements.length; k++) observateur.observe(elements[k]);
   }
@@ -93,13 +97,20 @@
   }
 
   /* ═══════════════════════════════════════════════════════════
-     4. Parcours épinglé
+     4. Parcours épinglés
      L'iPhone reste fixé pendant que les écrans se relaient.
+
+     La page en compte deux : la section « Votre métier » et le
+     parcours des fonctionnalités. Le même moteur les anime tous
+     les deux — il suffit qu'une section porte data-scroller et
+     contienne des .step, des .screen et des [data-dot].
      ═══════════════════════════════════════════════════════════ */
   function initParcours() {
-    var section = document.querySelector('[data-scroller]');
-    if (!section) return;
+    var sections = document.querySelectorAll('[data-scroller]');
+    for (var s = 0; s < sections.length; s++) animerParcours(sections[s]);
+  }
 
+  function animerParcours(section) {
     var etapes  = section.querySelectorAll('.step');
     var ecrans  = section.querySelectorAll('.screen');
     var points  = section.querySelectorAll('[data-dot]');
@@ -121,10 +132,20 @@
     function activerTexte(index) {
       if (index === actif) return;
       actif = index;
+
+      // Sert au CSS : la section « Votre métier » change de teinte
+      // d'ambiance selon le métier affiché.
+      section.setAttribute('data-actif', index);
+
       for (var i = 0; i < nombre; i++) {
         var estActif = (i === index);
         if (etapes[i]) etapes[i].classList.toggle('is-active', estActif);
-        if (points[i]) points[i].classList.toggle('is-active', estActif);
+        if (points[i]) {
+          points[i].classList.toggle('is-active', estActif);
+          if (points[i].tagName === 'BUTTON') {
+            points[i].setAttribute('aria-current', estActif ? 'true' : 'false');
+          }
+        }
       }
     }
 
@@ -166,9 +187,15 @@
       }
     }
 
+    /// Hauteur réellement parcourue par le doigt pendant que la scène
+    /// reste épinglée. Sert au calcul du défilement et aux raccourcis.
+    function hauteurUtile(rect) {
+      return rect.height - window.innerHeight;
+    }
+
     function calculer() {
       var rect = section.getBoundingClientRect();
-      var hauteurDefilable = rect.height - window.innerHeight;
+      var hauteurDefilable = hauteurUtile(rect);
 
       if (hauteurDefilable <= 0) {
         activerTexte(0);
@@ -192,8 +219,36 @@
       peindreEcrans(index, fraction);
     }
 
+    /* Repères cliquables : dans la section « Votre métier », la liste
+       des activités est faite de vrais boutons. Le visiteur va droit
+       à la sienne au lieu de dérouler les autres. */
+    function initRaccourcis() {
+      for (var i = 0; i < points.length; i++) {
+        if (points[i].tagName !== 'BUTTON') continue;
+        points[i].addEventListener('click', (function (cible) {
+          return function () {
+            var rect = section.getBoundingClientRect();
+            var hauteurDefilable = hauteurUtile(rect);
+            if (hauteurDefilable <= 0) return;
+
+            var hautSection = window.scrollY + rect.top;
+            // Milieu du segment : bien après le fondu d'entrée, bien
+            // avant celui de sortie.
+            var vise = hautSection
+                     + (cible + 0.45) * (hauteurDefilable / nombre);
+
+            window.scrollTo({
+              top: Math.round(vise),
+              behavior: mouvementReduit ? 'auto' : 'smooth'
+            });
+          };
+        })(i));
+      }
+    }
+
     activerTexte(0);
     peindreEcrans(0, 0);
+    initRaccourcis();
     lierAuDefilement(calculer);
   }
 

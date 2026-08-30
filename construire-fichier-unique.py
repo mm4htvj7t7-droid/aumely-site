@@ -45,28 +45,35 @@ def construire():
     css = open(os.path.join(SITE, "assets/css/style.css"), encoding="utf-8").read()
     js = open(os.path.join(SITE, "assets/js/main.js"), encoding="utf-8").read()
 
-    # 1. Embarquer les images
+    # 1. Retirer les variantes WebP : dans un fichier autonome, il n'y a
+    #    plus de serveur pour les livrer, et une balise <source> l'emporte
+    #    sur l'image de repli — la capture ne s'afficherait pas du tout.
+    html = re.sub(r'\s*<source srcset="assets/[^"]+\.webp"[^>]*>', "", html)
+    html = re.sub(r'\s*<link rel="preload"[^>]*\.webp"[^>]*>', "", html)
+
+    # 2. Embarquer les images
     for src in sorted(set(re.findall(r'src="(assets/(?:img|icon)/[^"]+\.png)"', html))):
         largeur = LARGEUR_ICONE if "icon" in src else LARGEUR_IMAGE
         uri = image_embarquee(os.path.join(SITE, src), largeur)
         html = html.replace('src="%s"' % src, 'src="%s"' % uri)
 
-    # 2. Embarquer la feuille de style
+    # 3. Embarquer la feuille de style
     html = html.replace(
         '<link rel="stylesheet" href="assets/css/style.css">',
         "<style>\n%s\n</style>" % css,
     )
 
-    # 3. Embarquer le script
+    # 4. Embarquer le script
     html = html.replace(
         '<script src="assets/js/main.js" defer></script>',
         "<script>\n%s\n</script>" % js,
     )
 
-    # 4. Retirer les icônes de raccourci, qui pointaient vers des fichiers
+    # 5. Retirer les icônes de raccourci, qui pointaient vers des fichiers
     #    devenus absents une fois le fichier déplacé.
     html = re.sub(r'\s*<link rel="(?:apple-touch-)?icon"[^>]*>', "", html)
-    html = re.sub(r'\s*<meta property="og:image"[^>]*>', "", html)
+    html = re.sub(r'\s*<meta property="og:image[^"]*"[^>]*>', "", html)
+    html = re.sub(r'\s*<meta name="twitter:image"[^>]*>', "", html)
 
     with open(SORTIE, "w", encoding="utf-8") as f:
         f.write(html)

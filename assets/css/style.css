@@ -398,83 +398,296 @@ a{ color: inherit; text-decoration: none; }
 
 
 /* ══════════════════════════════════════════════════════════════
-   2. LE PROBLÈME
+   2. VOTRE MÉTIER
+   La scène reste épinglée pendant que l'accueil d'Aumely change
+   de métier. La liste des activités, elle, ne bouge pas : le
+   visiteur doit voir en permanence que l'application les couvre
+   toutes, pas seulement celle qui est à l'écran.
    ══════════════════════════════════════════════════════════════ */
-.problem{
-  padding: 260px 0 130px;
-  background: #EDF1FF;
+.metiers{
+  position: relative;
+  /* Teinte d'ambiance du métier affiché. Reprise des couleurs que
+     l'application donne elle-même à chaque profil. */
+  --teinte: #E08A2B;                                /* Artisan */
+  background: linear-gradient(180deg, #EDF1FF 0%, var(--brume) 26%, var(--brume) 76%, #FFFFFF 100%);
+  /* Le téléphone du héros déborde de 170 px : la scène ne doit pas
+     l'accueillir en pleine figure. */
+  padding-top: 250px;
+}
+.metiers[data-actif="1"]{ --teinte: #4E86F7; }      /* Commerce & e-commerce */
+.metiers[data-actif="2"]{ --teinte: #6B61ED; }      /* Profession libérale */
+.metiers[data-actif="3"]{ --teinte: #2E9E63; }      /* Agriculture */
+
+.metiers__stage{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: 52px;                                /* dégage la barre fixe */
+  overflow: hidden;
+}
+
+/* La piste donne sa hauteur à la section : une zone par métier. */
+.metiers__track{ position: relative; }
+.metiers__seg{ height: 88vh; height: 88svh; }
+
+.metiers__grid{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+/* L'ordre de lecture reste titre → texte → capture ; à l'écran,
+   l'appareil se glisse entre les deux. */
+.metiers__head  { order: 1; width: 100%; }
+.metiers__device{ order: 2; }
+.metiers__texts { order: 3; }
+
+.metiers__eyebrow{
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 12px;
+  display: none;                                    /* réservé aux grands écrans */
+}
+
+.metiers__title{
+  font-size: clamp(1.5rem, 6.4vw, 1.95rem);
   text-align: center;
 }
-@media (min-width: 900px){ .problem{ padding-top: 330px; } }
 
-.problem__title{
-  font-size: clamp(1.85rem, 4.6vw, 3rem);
-  color: var(--encre);
-}
-
-.problem__list{
+/* ── La liste des activités ─────────────────────────────────── */
+.metiers__list{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin: 44px auto 0;
-  max-width: 680px;
+  gap: 6px;
+  margin-top: 14px;
 }
-.problem__list li{
-  background: rgba(255,255,255,.75);
+.metiers__list button{
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 7px 12px;
   border: 1px solid var(--trait);
   border-radius: 99px;
-  padding: 9px 18px;
-  font-size: 14.6px;
+  background: rgba(255,255,255,.72);
+  color: var(--encre-2);
+  font: inherit;
+  /* Les quatre activités doivent tenir sur deux lignes, même sur le
+     plus étroit des iPhone : c'est la promesse « toutes les activités »
+     qui se lit d'un coup d'œil. */
+  font-size: 12.5px;
   font-weight: 600;
-  color: var(--encre-2);
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background-color .5s var(--t-doux),
+    border-color     .5s var(--t-doux),
+    color            .5s var(--t-doux),
+    box-shadow       .5s var(--t-doux);
+}
+.metiers__list button:hover{ border-color: var(--encre-3); }
+
+.metiers__list button.is-active{
+  background: #fff;
+  border-color: color-mix(in srgb, var(--teinte) 45%, transparent);
+  color: var(--encre);
+  box-shadow: 0 8px 22px -12px color-mix(in srgb, var(--teinte) 80%, transparent);
+}
+/* Repli pour les navigateurs sans color-mix : la pastille active reste
+   nettement distincte, simplement sans la teinte du métier. */
+@supports not (color: color-mix(in srgb, red 50%, blue)){
+  .metiers__list button.is-active{
+    border-color: var(--encre-3);
+    box-shadow: 0 8px 22px -14px rgba(15,14,28,.55);
+  }
 }
 
-.problem__turn{
-  margin-top: 58px;
-  font-family: 'Schibsted Grotesk', sans-serif;
-  font-size: clamp(1.5rem, 4.4vw, 2.5rem);
-  font-weight: 800;
-  letter-spacing: -.03em;
-  background: var(--degrade);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+.metiers__emoji{ font-size: 15px; line-height: 1; }
 
-
-/* ══════════════════════════════════════════════════════════════
-   3. LA RÉPONSE
-   ══════════════════════════════════════════════════════════════ */
-.answer{
-  padding: 120px 0 0;
-  text-align: center;
-  background: linear-gradient(180deg, #EDF1FF 0%, #FFFFFF 42%);
-}
-.answer__title{ font-size: clamp(2.1rem, 5.6vw, 3.8rem); }
-.answer__lead{
-  margin: 24px auto 0;
-  max-width: 540px;
-  color: var(--encre-2);
-  font-size: 1.05rem;
-}
-.answer__device{
+/* ── Les textes : ils se relaient dans la même case ─────────── */
+.metiers__texts{
   position: relative;
-  z-index: 2;
+  width: 100%;
+  max-width: 480px;
+  min-height: 132px;
+  text-align: center;
+}
+.metiers .step__title{ font-size: clamp(1.05rem, 4.4vw, 1.25rem); margin-bottom: 7px; }
+.metiers .step__body{ font-size: .88rem; line-height: 1.5; }
+
+/* ── L'appareil et son halo ─────────────────────────────────── */
+.metiers__device{
+  position: relative;
   display: flex;
   justify-content: center;
-  margin-top: 60px;
-  margin-bottom: -150px;                 /* chevauche la section suivante */
+}
+.metiers__halo{
+  position: absolute;
+  z-index: 0;
+  left: 50%; top: 50%;
+  width: 165%; aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--teinte);
+  opacity: .17;
+  filter: blur(52px);
+  pointer-events: none;
+  transition: background-color .7s var(--t-doux);
+}
+.metiers__device .phone{ position: relative; z-index: 1; }
+
+/* Le mot de la fin, une fois la scène terminée. */
+.metiers__autre{
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 52px 24px 0;
+  text-align: center;
+  font-size: .95rem;
+  color: var(--encre-2);
+}
+.metiers__autre strong{ color: var(--encre); font-weight: 700; }
+
+@media (min-width: 900px){
+  .metiers{ padding-top: 300px; }
+  .metiers__stage{ padding-top: 64px; }
+  .metiers__seg{ height: 100vh; height: 100svh; }
+
+  .metiers__grid{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "tete    appareil"
+      "textes  appareil";
+    align-content: center;
+    column-gap: 60px;
+    row-gap: 0;
+  }
+  .metiers__head  { grid-area: tete;     max-width: 500px; text-align: left; }
+  .metiers__texts { grid-area: textes;   max-width: 500px; }
+  .metiers__device{ grid-area: appareil; align-self: center; }
+
+  .metiers__eyebrow{ display: block; }
+  .metiers__title{ font-size: clamp(2rem, 3.6vw, 2.9rem); text-align: left; }
+
+  .metiers__list{ justify-content: flex-start; gap: 9px; margin-top: 26px; }
+  .metiers__list button{ padding: 9px 16px; font-size: 14.5px; }
+  .metiers__emoji{ font-size: 16px; }
+
+  .metiers__texts{
+    text-align: left;
+    min-height: 150px;
+    margin-top: 30px;
+    max-width: 460px;
+  }
+  .metiers .step__title{ font-size: 1.55rem; margin-bottom: 12px; }
+  .metiers .step__body{ font-size: 1rem; margin-inline: 0; }
+
+  .metiers__autre{ padding-top: 70px; font-size: 1rem; }
 }
 
 
 /* ══════════════════════════════════════════════════════════════
-   4→7. PARCOURS ÉPINGLÉ
+   3. TOUT AU MÊME ENDROIT
+   La grille donne d'un seul coup d'œil le périmètre de
+   l'application, avant que le parcours n'en détaille cinq pièces.
+   ══════════════════════════════════════════════════════════════ */
+.outils{
+  padding: 110px 0 120px;
+  background: #fff;
+}
+.outils__head{ max-width: 700px; margin-inline: auto; text-align: center; }
+.outils__title{ font-size: clamp(1.95rem, 5.4vw, 3.2rem); }
+.outils__lead{
+  margin-top: 22px;
+  color: var(--encre-2);
+  font-size: 1.03rem;
+}
+
+.outils__grid{
+  display: grid;
+  /* Neuf outils : deux colonnes sur téléphone, trois ensuite — jamais
+     une dernière carte esseulée en bout de ligne. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+  margin-top: 46px;
+}
+/* Le neuvième prend toute la largeur : la facturation électronique
+   annonce la section qui lui est consacrée juste après. */
+.outils__grid .outil:last-child{ grid-column: 1 / -1; }
+
+@media (min-width: 700px){
+  .outils__grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .outils__grid .outil:last-child{ grid-column: auto; }
+}
+
+.outil{
+  background: var(--brume);
+  border: 1px solid var(--trait);
+  border-radius: var(--r-md);
+  padding: 18px 16px 17px;
+  transition: transform .4s var(--t-doux), box-shadow .4s var(--t-doux);
+}
+@media (hover: hover){
+  .outil:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 24px 44px -30px rgba(15,14,28,.55);
+  }
+}
+
+.outil__icone{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: 11px;
+  margin-bottom: 12px;
+  background: var(--degrade);
+  color: #fff;
+}
+.outil__icone svg{ width: 19px; height: 19px; }
+
+.outil h3{
+  font-size: .97rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin-bottom: 5px;
+}
+.outil p{
+  font-size: .84rem;
+  line-height: 1.45;
+  color: var(--encre-2);
+}
+
+@media (min-width: 900px){
+  .outils{ padding: 150px 0 160px; }
+  .outils__grid{ gap: 18px; margin-top: 66px; }
+  .outil{ padding: 26px 24px 24px; }
+  .outil__icone{ width: 42px; height: 42px; border-radius: 12px; margin-bottom: 15px; }
+  .outil__icone svg{ width: 22px; height: 22px; }
+  .outil h3{ font-size: 1.08rem; margin-bottom: 7px; }
+  .outil p{ font-size: .93rem; line-height: 1.5; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   4. PARCOURS ÉPINGLÉ — LES FONCTIONNALITÉS
    ══════════════════════════════════════════════════════════════ */
 .scroller{
   position: relative;
   background: linear-gradient(180deg, #FFFFFF 0%, var(--brume) 22%, var(--brume) 78%, #FFFFFF 100%);
-  padding-top: 170px;
+  padding-top: 40px;
 }
 
 .scroller__stage{
@@ -558,8 +771,10 @@ a{ color: inherit; text-decoration: none; }
 }
 .scroller__device > *{ position: relative; z-index: 1; }
 
-/* Les écrans se superposent et se relaient en fondu */
-.js .scroller__device .screen{
+/* Les écrans se superposent et se relaient en fondu.
+   Vaut pour les deux scènes épinglées de la page : le parcours des
+   fonctionnalités et la section « Votre métier ». */
+.js .phone--pinned .screen{
   position: absolute;
   inset: 0;
   width: 100%; height: 100%;
@@ -586,7 +801,7 @@ a{ color: inherit; text-decoration: none; }
 .scroller__dots li.is-active{ background: var(--violet); width: 22px; }
 
 @media (min-width: 900px){
-  .scroller{ padding-top: 220px; }
+  .scroller{ padding-top: 70px; }
   .scroller__seg{ height: 100vh; height: 100svh; }
   .scroller__grid{
     flex-direction: row;
@@ -782,54 +997,6 @@ a{ color: inherit; text-decoration: none; }
 
 
 /* ══════════════════════════════════════════════════════════════
-   10. PROFILS
-   ══════════════════════════════════════════════════════════════ */
-.profils{
-  padding: 120px 0;
-  background: var(--brume);
-  text-align: center;
-  overflow: hidden;
-}
-.profils__title{ font-size: clamp(1.8rem, 4.8vw, 2.9rem); }
-.profils__lead{
-  margin: 20px auto 0;
-  max-width: 500px;
-  color: var(--encre-2);
-}
-
-.profils__tags{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 36px;
-}
-.profils__tags li{
-  background: #fff;
-  border: 1px solid var(--trait);
-  border-radius: 99px;
-  padding: 10px 20px;
-  font-size: 14.6px;
-  font-weight: 600;
-}
-
-.profils__devices{
-  display: flex;
-  justify-content: center;
-  /* Sans ceci, les appareils s'étirent à la hauteur de la rangée : celui du
-     milieu, remonté de 30 px, devenait 30 px plus haut que les autres et
-     laissait une bande sombre sous son écran (dont le rapport est fixe). */
-  align-items: flex-start;
-  gap: 18px;
-  margin-top: 62px;
-  flex-wrap: wrap;
-}
-@media (min-width: 900px){
-  .profils__devices .phone:nth-child(2){ margin-top: -30px; }
-}
-
-
-/* ══════════════════════════════════════════════════════════════
    11. TARIF
    ══════════════════════════════════════════════════════════════ */
 .tarif{
@@ -1000,8 +1167,8 @@ html:not(.js) .scroller__texts{
 html:not(.js) .step + .step{ margin-top: 34px; }
 html:not(.js) .step__body{ margin-inline: auto; }
 /* Un seul appareil : on montre la première capture. */
-html:not(.js) .scroller__device .screen{ display: none; }
-html:not(.js) .scroller__device .screen[data-step="0"]{ display: block; }
+html:not(.js) .phone--pinned .screen{ display: none; }
+html:not(.js) .phone--pinned .screen[data-step="0"]{ display: block; }
 
 
 /* Section « facture » : sur-titre et note de bas de bloc */
@@ -1033,3 +1200,163 @@ html:not(.js) .scroller__device .screen[data-step="0"]{ display: block; }
 }
 .efacture__precision strong{ color: rgba(255,255,255,.9); font-weight: 700; }
 @media (min-width: 900px){ .efacture__precision{ margin-inline: 0; } }
+
+
+/* ══════════════════════════════════════════════════════════════
+   COMPLÉMENTS V2
+   ══════════════════════════════════════════════════════════════ */
+
+/* La signature de marque, posée juste au-dessus du titre du héros. */
+.hero__badge{
+  /* Un bloc à sa propre ligne : sans cela, la pastille se range à côté
+     du nom de la marque, qui est en inline-flex. */
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  margin-bottom: 20px;
+  padding: 7px 16px;
+  border: 1px solid var(--trait);
+  border-radius: 99px;
+  background: rgba(255,255,255,.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--encre-2);
+}
+
+/* Le héros porte maintenant une ligne de plus : on resserre un peu
+   pour que le téléphone reste visible sur le premier écran. */
+.hero__brand{ margin-bottom: 18px; }
+.hero__brand span{ font-size: 26px; }
+.hero__title{ font-size: clamp(2.4rem, 6.8vw, 4.2rem); }
+.hero__lead{ margin-top: 20px; }
+.hero__actions{ margin-top: 26px; }
+.hero__device{ margin-top: 30px; }
+
+@media (min-width: 900px){
+  .hero__brand span{ font-size: 29px; }
+  .hero__device{ margin-top: 38px; }
+}
+
+/* L'appareil de la section « Votre métier » partage son écran avec le
+   titre, les pastilles d'activité et le texte du métier : son budget
+   vertical n'est pas celui du parcours des fonctionnalités. */
+.metiers .phone--pinned{ --ecran-l: min(270px, calc((100vh - 350px) / 2.25)); }
+@media (min-width: 900px){
+  .metiers .phone--pinned{ --ecran-l: min(340px, calc((100vh - 180px) / 2.25)); }
+}
+@supports (height: 100svh){
+  .metiers .phone--pinned{ --ecran-l: min(270px, calc((100svh - 350px) / 2.25)); }
+  @media (min-width: 900px){
+    .metiers .phone--pinned{ --ecran-l: min(340px, calc((100svh - 180px) / 2.25)); }
+  }
+}
+
+/* Tarif : le sur-titre et un titre qui redit le positionnement. */
+.tarif__eyebrow{
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 14px;
+}
+.tarif__title{ font-size: clamp(1.45rem, 3.8vw, 2.1rem); }
+.tarif__points{ max-width: 330px; }
+
+/* Conclusion : la signature de marque avant le dernier bouton. */
+.outro__lead{
+  margin: -22px auto 34px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--encre-3);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   SANS JAVASCRIPT — section « Votre métier »
+   Même principe que pour le parcours : rien ne s'épingle, tout
+   s'empile, et la page reste entièrement lisible.
+   ══════════════════════════════════════════════════════════════ */
+html:not(.js) .metiers{ padding-top: 220px; }
+html:not(.js) .metiers__stage{
+  position: static;
+  height: auto;
+  padding-top: 0;
+  overflow: visible;
+}
+html:not(.js) .metiers__track{ display: none; }
+html:not(.js) .metiers__grid{ gap: 40px; }
+html:not(.js) .metiers__texts{
+  min-height: 0;
+  max-width: 560px;
+  margin-inline: auto;
+}
+html:not(.js) .metiers .step + .step{ margin-top: 26px; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   HÉROS — RÉGLAGE MOBILE
+   Priorité absolue : sur un téléphone, le premier écran doit
+   montrer le message ET le haut de l'application. Tout ce qui
+   suit ne fait que gagner les pixels nécessaires.
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 899px){
+  .hero{ padding-top: 66px; padding-bottom: 40px; }
+
+  .hero__brand{ margin-bottom: 13px; gap: 10px; }
+  .hero__brand img{ width: 46px; height: 46px; border-radius: 11px; }
+  .hero__brand span{ font-size: 23px; }
+
+  .hero__badge{
+    margin-bottom: 15px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+  }
+
+  .hero__title{ font-size: clamp(1.95rem, 8.4vw, 2.6rem); }
+  .hero__lead{
+    margin-top: 15px;
+    font-size: 15.5px;
+    line-height: 1.5;
+    max-width: 340px;
+  }
+
+  .hero__actions{ margin-top: 22px; }
+  .hero__price{ margin-top: 14px; }
+  .hero__device{ margin-top: 24px; }
+
+  /* La capture coupée en bas d'écran invite déjà à défiler : la
+     molette ferait doublon, et se retrouverait de toute façon hors
+     du premier écran. */
+  .hero__scroll{ display: none; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ÉCRANS COURTS (iPhone SE, navigateur avec barres visibles)
+   La scène « Votre métier » doit loger un titre, quatre activités,
+   l'appareil et un texte. Sous 720 px de haut, on rend au texte la
+   place que l'appareil réclame : c'est la capture qui prouve le
+   propos, pas le paragraphe.
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 899px) and (max-height: 720px){
+  .metiers__stage{ padding-top: 46px; }
+  .metiers__title{ font-size: 1.28rem; }
+  .metiers__list{ margin-top: 11px; gap: 5px; }
+  .metiers__list button{ padding: 6px 10px; font-size: 11.5px; }
+  .metiers__emoji{ font-size: 13px; }
+
+  .metiers__texts{ min-height: 46px; }
+  .metiers .step__title{ font-size: 1rem; margin-bottom: 0; }
+  .metiers .step__body{ display: none; }
+
+  .metiers .phone--pinned{ --ecran-l: min(270px, calc((100vh - 212px) / 2.25)); }
+}
+@supports (height: 100svh){
+  @media (max-width: 899px) and (max-height: 720px){
+    .metiers .phone--pinned{ --ecran-l: min(270px, calc((100svh - 212px) / 2.25)); }
+  }
+}

@@ -1,10 +1,14 @@
-# Site de présentation Aumely — prototype
+# Site de présentation Aumely
 
-Prototype en cours de validation. Le site n'est pas définitif et le domaine
-officiel n'est pas encore branché.
+Site d'une seule page, sans dépendance ni étape de compilation :
+`index.html`, `assets/css/style.css`, `assets/js/main.js` et les captures
+d'écran de l'application dans `assets/img/`.
 
-Page unique, sans dépendance ni étape de compilation : `index.html`,
-`assets/css/style.css`, `assets/js/main.js` et les captures d'écran de
-l'application dans `assets/img/`.
+**V2** — positionnement : « L'application qui s'adapte à votre activité. »
+La version précédente reste disponible (voir `LISEZ-MOI.md`, section
+« Revenir à l'ancienne version »).
+
+Ce dépôt porte aussi `confidentialite.html` et `support.html`, les deux pages
+exigées par Apple et déclarées dans App Store Connect. Ne jamais les écraser.
 
 Voir `LISEZ-MOI.md` pour le détail et ce qu'il reste à faire.

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Aumely — L'application tout-en-un des indépendants</title>
-<meta name="description" content="Aumely réunit le livre des recettes, les dépenses, les clients, les rendez-vous, les devis et les factures dans une seule application iPhone. Réception des factures électroniques intégrée. 4,99 €/mois, 14 jours d'essai gratuit sans engagement.">
+<title>Aumely — L'application qui s'adapte à votre activité</title>
+<meta name="description" content="Artisan, commerçant, e-commerçant, profession libérale, agriculteur ou autre indépendant : Aumely s'adapte à votre activité. Livre des recettes, dépenses, clients, rendez-vous, devis, factures et facturation électronique dans une seule application iPhone. 4,99 €/mois, 14 jours gratuits sans engagement.">
 
 <link rel="canonical" href="https://aumely.com/">
 
@@ -13,27 +13,32 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Aumely">
 <meta property="og:url" content="https://aumely.com/">
-<meta property="og:title" content="Aumely — L'application tout-en-un des indépendants">
-<meta property="og:description" content="Livre des recettes, dépenses, clients, rendez-vous, devis, factures et réception des factures électroniques. Toute votre activité, au même endroit. 4,99 €/mois, 14 jours gratuits.">
+<meta property="og:title" content="Aumely — L'application qui s'adapte à votre activité">
+<meta property="og:description" content="Un seul outil. Toutes les activités. Recettes, dépenses, clients, rendez-vous, devis, factures et facturation électronique, dans une seule application. 4,99 €/mois, 14 jours gratuits.">
 <meta property="og:image" content="https://aumely.com/assets/img/apercu-partage.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Aumely — toute votre activité, au même endroit.">
+<meta property="og:image:alt" content="Aumely — l'application qui s'adapte à votre activité.">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Aumely — L'application tout-en-un des indépendants">
-<meta name="twitter:description" content="Livre des recettes, dépenses, clients, rendez-vous, devis, factures et réception des factures électroniques. 4,99 €/mois, 14 jours gratuits.">
+<meta name="twitter:title" content="Aumely — L'application qui s'adapte à votre activité">
+<meta name="twitter:description" content="Un seul outil. Toutes les activités. Recettes, dépenses, clients, rendez-vous, devis et factures. 4,99 €/mois, 14 jours gratuits.">
 <meta name="twitter:image" content="https://aumely.com/assets/img/apercu-partage.png">
 
 <meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-title" content="Aumely">
 
-<link rel="icon" href="assets/icon/aumely-icon.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/icon/aumely-icon.png">
+<link rel="icon" href="assets/icon/aumely-icon-320.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/icon/aumely-icon-320.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap">
+
+<!-- La capture du héros décide de la vitesse perçue du site : on la demande
+     avant même que le navigateur n'ait lu le corps de la page. Les
+     navigateurs sans WebP ignorent simplement cette ligne. -->
+<link rel="preload" as="image" href="assets/img/accueil.webp" type="image/webp" fetchpriority="high">
 
 <!-- Signale que JavaScript est disponible. Sans cette classe, la feuille de
      style n'applique AUCUN état masqué : la page reste entièrement lisible
@@ -43,6 +48,25 @@
 <script>document.documentElement.className += " js";</script>
 
 <link rel="stylesheet" href="assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Aumely",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "iOS",
+  "inLanguage": "fr-FR",
+  "url": "https://aumely.com/",
+  "description": "Application de gestion quotidienne pour les indépendants : livre des recettes, dépenses, clients, rendez-vous, devis, factures et facturation électronique. L'accueil s'adapte à l'activité — artisan, commerce et e-commerce, profession libérale, agriculture.",
+  "offers": {
+    "@type": "Offer",
+    "price": "4.99",
+    "priceCurrency": "EUR",
+    "description": "4,99 € par mois, 14 jours d'essai gratuit, sans engagement."
+  }
+}
+</script>
 </head>
 <body>
 
@@ -54,12 +78,15 @@
 <header class="topbar" id="topbar">
   <div class="topbar__inner">
     <a class="topbar__brand" href="#top" aria-label="Aumely, retour en haut">
-      <img src="assets/icon/aumely-icon.png" alt="" width="32" height="32">
+      <picture>
+        <source srcset="assets/icon/aumely-icon.webp" type="image/webp">
+        <img src="assets/icon/aumely-icon-320.png" alt="" width="32" height="32">
+      </picture>
       <span>Aumely</span>
     </a>
     <nav class="topbar__nav" aria-label="Sections du site">
+      <a href="#metiers">Votre métier</a>
       <a href="#fonctionnalites">Fonctionnalités</a>
-      <a href="#facturation-electronique">Facturation électronique</a>
       <a href="#tarif">Tarif</a>
     </nav>
     <a class="btn btn--sm" data-appstore href="#tarif">Télécharger</a>
@@ -69,28 +96,36 @@
 <main id="top">
 
   <!-- ══════════════════════════════════════════════════════════
-       1. HÉROS
+       1. HÉROS — « Aumely s'adapte à votre activité »
        ══════════════════════════════════════════════════════════ -->
   <section class="hero">
     <div class="hero__glow" aria-hidden="true"></div>
 
     <div class="hero__content">
       <div class="hero__brand reveal">
-        <img src="assets/icon/aumely-icon.png" alt="" width="60" height="60">
+        <picture>
+          <source srcset="assets/icon/aumely-icon.webp" type="image/webp">
+          <img src="assets/icon/aumely-icon-320.png" alt="" width="60" height="60">
+        </picture>
         <span>Aumely</span>
       </div>
 
-      <h1 class="hero__title reveal" data-delay="1">
-        Votre activité.<br>
-        <em>Clair. Simple. Serein.</em>
-      </h1>
-
-      <p class="hero__lead reveal" data-delay="2">
-        Livre des recettes, dépenses, clients, rendez-vous, devis et factures.
-        Une seule application pour piloter toute votre activité d'indépendant.
+      <p class="hero__badge reveal" data-delay="1">
+        Un seul outil. Toutes les activités.
       </p>
 
-      <div class="hero__actions reveal" data-delay="3">
+      <h1 class="hero__title reveal" data-delay="2">
+        L'application qui<br>
+        <em>s'adapte à votre activité.</em>
+      </h1>
+
+      <p class="hero__lead reveal" data-delay="3">
+        Artisan, commerçant, e-commerçant, profession libérale, agriculteur
+        ou autre indépendant : gérez tout votre quotidien dans une seule
+        application.
+      </p>
+
+      <div class="hero__actions reveal" data-delay="4">
         <a class="btn btn--lg" data-appstore href="#tarif">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.365 1.43c0 1.14-.462 2.12-1.152 2.86-.744.797-1.96 1.41-2.98 1.33-.114-1.1.42-2.24 1.128-2.98.774-.82 2.12-1.42 3.004-1.21zM20.9 17.36c-.53 1.22-.78 1.77-1.46 2.85-.95 1.5-2.29 3.37-3.95 3.38-1.47.02-1.85-.96-3.84-.95-1.99.01-2.41.97-3.88.95-1.66-.02-2.93-1.7-3.88-3.2C1.4 16.9.75 12.9 2.5 10.2c1.24-1.9 3.2-3.03 5.04-3.03 1.88 0 3.06 1.03 4.61 1.03 1.5 0 2.42-1.03 4.6-1.03 1.64 0 3.38.9 4.6 2.44-4.05 2.22-3.39 8-.45 7.75z"/></svg>
           <span>Télécharger sur l'App&nbsp;Store</span>
@@ -102,15 +137,15 @@
       </div>
     </div>
 
-    <div class="hero__device reveal" data-delay="4">
+    <div class="hero__device reveal" data-delay="5">
       <div class="phone phone--hero">
         <div class="phone__screen">
           <picture>
-               <source srcset="assets/img/accueil.webp" type="image/webp">
-               <img src="assets/img/accueil.png"
-               alt="Écran d'accueil d'Aumely : activité du mois, rendez-vous à venir et factures en attente."
-               width="1206" height="2622" fetchpriority="high" decoding="async">
-             </picture>
+            <source srcset="assets/img/accueil.webp" type="image/webp">
+            <img src="assets/img/accueil.png"
+                 alt="Écran d'accueil d'Aumely : activité du mois, rendez-vous à venir et factures en attente."
+                 width="1206" height="2622" fetchpriority="high" decoding="async">
+          </picture>
         </div>
       </div>
     </div>
@@ -120,63 +155,228 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-       2. LE PROBLÈME
+       2. VOTRE MÉTIER — le cœur du positionnement
+       Un seul iPhone reste épinglé pendant que l'accueil d'Aumely
+       change de métier au fil du défilement. La liste des métiers
+       reste visible en permanence : le visiteur voit d'un coup
+       d'œil que l'application couvre toutes les activités, pas
+       seulement celle qui est affichée.
        ══════════════════════════════════════════════════════════ -->
-  <section class="problem" aria-labelledby="probleme-titre">
-    <div class="wrap wrap--narrow">
-      <h2 class="problem__title reveal" id="probleme-titre">
-        Gérer son activité,<br>c'est gérer dix choses à la fois.
-      </h2>
+  <section class="metiers" id="metiers" data-scroller data-actif="0"
+           aria-labelledby="metiers-titre">
 
-      <ul class="problem__list" role="list">
-        <li class="reveal" data-delay="1">Le livre des recettes à tenir</li>
-        <li class="reveal" data-delay="1">Les dépenses à justifier</li>
-        <li class="reveal" data-delay="2">Les clients à suivre</li>
-        <li class="reveal" data-delay="2">Les rendez-vous à tenir</li>
-        <li class="reveal" data-delay="3">Les devis à relancer</li>
-        <li class="reveal" data-delay="3">Les factures à éditer</li>
-        <li class="reveal" data-delay="4">Les échéances à ne pas rater</li>
-      </ul>
+    <div class="metiers__stage">
+      <div class="wrap metiers__grid">
 
-      <p class="problem__turn reveal" data-delay="5">
-        Et si tout était au même endroit&nbsp;?
-      </p>
-    </div>
-  </section>
+        <div class="metiers__head">
+          <p class="metiers__eyebrow">Votre métier</p>
+          <h2 class="metiers__title" id="metiers-titre">
+            Une application.<br><em>Votre métier.</em>
+          </h2>
 
+          <!-- Les repères de progression sont ici de vrais boutons : le
+               visiteur peut aller directement au métier qui le concerne. -->
+          <ul class="metiers__list" role="list">
+            <li>
+              <button type="button" data-dot="0">
+                <span class="metiers__emoji" aria-hidden="true">🔧</span>
+                <span>Artisan</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-dot="1">
+                <span class="metiers__emoji" aria-hidden="true">🛒</span>
+                <span>Commerce &amp; e-commerce</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-dot="2">
+                <span class="metiers__emoji" aria-hidden="true">💼</span>
+                <span>Profession libérale</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-dot="3">
+                <span class="metiers__emoji" aria-hidden="true">🌾</span>
+                <span>Agriculture</span>
+              </button>
+            </li>
+          </ul>
+        </div>
 
-  <!-- ══════════════════════════════════════════════════════════
-       3. LA RÉPONSE
-       ══════════════════════════════════════════════════════════ -->
-  <section class="answer" aria-labelledby="reponse-titre">
-    <div class="wrap">
-      <h2 class="answer__title reveal" id="reponse-titre">
-        Toute votre activité.<br><em>Au même endroit.</em>
-      </h2>
-      <p class="answer__lead reveal" data-delay="1">
-        Vous ouvrez. Vous voyez où vous en êtes.
-      </p>
+        <!-- Les textes se relaient dans la même case -->
+        <div class="metiers__texts">
+          <article class="step" data-step="0">
+            <h3 class="step__title">Vos chantiers, du devis à la facture.</h3>
+            <p class="step__body">
+              Votre accueil ouvre sur vos projets et interventions en cours.
+              Devis, factures et règlements en attente suivent au même
+              endroit.
+            </p>
+          </article>
 
-      <div class="answer__device reveal" data-delay="2">
-        <div class="phone phone--big" data-parallax="0.04">
-          <div class="phone__screen">
-            <picture>
-               <source srcset="assets/img/accueil.webp" type="image/webp">
-               <img src="assets/img/accueil.png"
-                 alt="Tableau de bord Aumely : entrées, dépenses et résultat du mois, rendez-vous de la semaine, factures en attente de paiement."
-                 width="1206" height="2622" loading="lazy" decoding="async">
-             </picture>
+          <article class="step" data-step="1">
+            <h3 class="step__title">Toutes vos ventes, tous vos canaux.</h3>
+            <p class="step__body">
+              Aumely répartit vos recettes par canal de vente et par mode
+              de règlement. Vous voyez d'où vient votre chiffre d'affaires.
+            </p>
+          </article>
+
+          <article class="step" data-step="2">
+            <h3 class="step__title">Vos rendez-vous et vos clients, reliés.</h3>
+            <p class="step__body">
+              Votre accueil ouvre sur vos prochains rendez-vous. Chacun est
+              rattaché à son client — et la facture part de la même fiche.
+            </p>
+          </article>
+
+          <article class="step" data-step="3">
+            <h3 class="step__title">Vos productions et votre troupeau, suivis.</h3>
+            <p class="step__body">
+              Le suivi de vos animaux et de vos productions s'ajoute à votre
+              accueil, à côté de vos ventes et de vos dépenses.
+            </p>
+          </article>
+        </div>
+
+        <div class="metiers__device">
+          <div class="metiers__halo" aria-hidden="true"></div>
+          <div class="phone phone--pinned">
+            <div class="phone__screen">
+              <picture>
+                <source srcset="assets/img/profil-artisan.webp" type="image/webp">
+                <img class="screen" data-step="0" src="assets/img/profil-artisan.png"
+                     alt="Accueil d'Aumely réglé sur le profil Artisan : activité du mois et suivi des projets et interventions en cours."
+                     width="1206" height="2622" loading="lazy" decoding="async">
+              </picture>
+              <picture>
+                <source srcset="assets/img/profil-commerce.webp" type="image/webp">
+                <img class="screen" data-step="1" src="assets/img/profil-commerce.png"
+                     alt="Accueil d'Aumely réglé sur une activité de commerce : répartition des recettes par canal et suivi des plateformes de vente."
+                     width="1206" height="2622" loading="lazy" decoding="async">
+              </picture>
+              <picture>
+                <source srcset="assets/img/accueil.webp" type="image/webp">
+                <img class="screen" data-step="2" src="assets/img/accueil.png"
+                     alt="Accueil d'Aumely réglé sur le profil Profession libérale : rendez-vous de la semaine et factures en attente de paiement."
+                     width="1206" height="2622" loading="lazy" decoding="async">
+              </picture>
+              <picture>
+                <source srcset="assets/img/profil-agricole.webp" type="image/webp">
+                <img class="screen" data-step="3" src="assets/img/profil-agricole.png"
+                     alt="Accueil d'Aumely réglé sur le profil Agriculteur : répartition des recettes, troupeau et productions."
+                     width="1206" height="2622" loading="lazy" decoding="async">
+              </picture>
+            </div>
           </div>
         </div>
+
       </div>
+    </div>
+
+    <!-- Zones de défilement : une par métier -->
+    <div class="metiers__track" aria-hidden="true">
+      <div class="metiers__seg"></div><div class="metiers__seg"></div>
+      <div class="metiers__seg"></div><div class="metiers__seg"></div>
+    </div>
+
+    <p class="metiers__autre wrap reveal">
+      <strong>Une autre activité&nbsp;?</strong>
+      Choisissez la vôtre dans Aumely : votre accueil se règle sur ce que
+      vous suivez vraiment.
+    </p>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       3. TOUT AU MÊME ENDROIT
+       ══════════════════════════════════════════════════════════ -->
+  <section class="outils" aria-labelledby="outils-titre">
+    <div class="wrap">
+      <div class="outils__head">
+        <h2 class="outils__title reveal" id="outils-titre">
+          Dix choses à gérer.<br><em>Une seule application.</em>
+        </h2>
+        <p class="outils__lead reveal" data-delay="1">
+          Le livre des recettes, les dépenses, les clients, les rendez-vous,
+          les devis, les factures. Vous ouvrez Aumely, et tout est là.
+        </p>
+      </div>
+
+      <ul class="outils__grid" role="list">
+        <li class="outil reveal" data-delay="1">
+          <span class="outil__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+          </span>
+          <h3>Livre des recettes</h3>
+          <p>Chaque encaissement daté, classé, additionné.</p>
+        </li>
+        <li class="outil reveal" data-delay="1">
+          <span class="outil__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v12H3z"/><path d="M3 11h18"/><path d="M7 15h4"/></svg>
+          </span>
+          <h3>Dépenses</h3>
+          <p>Le montant, la catégorie, le justificatif.</p>
+        </li>
+        <li class="outil reveal" data-delay="2">
+          <span class="outil__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c.8-3.7 3.8-5.6 7.5-5.6s6.7 1.9 7.5 5.6"/></svg>
+          </span>
+          <h3>Clients</h3>
+          <p>Coordonnées, documents et historique sur une page.</p>
+        </li>
+        <li class="outil reveal" data-delay="2">
+          <span class="outil__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+          </span>
+          <h3>Rendez-vous</h3>
+          <p>Un agenda relié à vos clients, rappelé sur l'accueil.</p>
+        </li>
+        <li class="outil reveal" data-delay="3">
+          <span class="outil__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9.5 8h5M9.5 12h5"/></svg>
+          </span>
+          <h3>Devis</h3>
+          <p>Envoyés, suivis, transformés en facture.</p>
+        </li>
+        <li class="outil reveal" data-delay="3">
+          <span class="outil__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5z"/><path d="M9 12h6M9 16h3"/><circle cx="16.5" cy="16.5" r="3.5" fill="none"/><path d="M15 16.5l1 1 2-2"/></svg>
+          </span>
+          <h3>Factures</h3>
+          <p>Numérotation continue, TVA, mentions légales, échéances.</p>
+        </li>
+        <li class="outil reveal" data-delay="4">
+          <span class="outil__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><circle cx="9" cy="10.5" r="1.8"/><path d="M4.5 17l4.2-4 3.3 3 2.6-2.4 4.9 4.4"/></svg>
+          </span>
+          <h3>Votre logo</h3>
+          <p>En haut de chacun de vos devis et de vos factures.</p>
+        </li>
+        <li class="outil reveal" data-delay="4">
+          <span class="outil__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M4 19h16"/></svg>
+          </span>
+          <h3>Analyses</h3>
+          <p>Chiffre d'affaires, résultat, évolution, répartition.</p>
+        </li>
+        <li class="outil reveal" data-delay="5">
+          <span class="outil__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6.5h17v11h-17z"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>
+          </span>
+          <h3>Facturation électronique</h3>
+          <p>Les factures de vos fournisseurs arrivent dans Aumely.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
 
   <!-- ══════════════════════════════════════════════════════════
-       4→7. LE PARCOURS DES FONCTIONNALITÉS
+       4. LE PARCOURS DES FONCTIONNALITÉS
        Un seul iPhone reste fixé pendant que le contenu de l'écran
-       change au fil du défilement (voir main.js → initScroller).
+       change au fil du défilement (voir main.js → initParcours).
        ══════════════════════════════════════════════════════════ -->
   <section class="scroller" id="fonctionnalites" data-scroller aria-labelledby="fonctionnalites-titre">
     <h2 class="visually-hidden" id="fonctionnalites-titre">Les fonctionnalités d'Aumely</h2>
@@ -288,7 +488,7 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-       Le document produit — respiration après le parcours
+       5. LE DOCUMENT PRODUIT — respiration après le parcours
        ══════════════════════════════════════════════════════════ -->
   <section class="document" aria-labelledby="document-titre">
     <div class="wrap document__grid">
@@ -323,56 +523,7 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-       8. FACTURATION ÉLECTRONIQUE — moment fort
-       ══════════════════════════════════════════════════════════ -->
-  <section class="efacture" id="facturation-electronique" aria-labelledby="efacture-titre">
-    <div class="efacture__glow" aria-hidden="true"></div>
-
-    <div class="wrap efacture__grid">
-      <div class="efacture__text">
-        <p class="efacture__eyebrow reveal">Facturation électronique</p>
-        <h2 class="efacture__title reveal" data-delay="1">
-          Vos factures fournisseurs,<br><em>déjà dans Aumely.</em>
-        </h2>
-        <p class="efacture__body reveal" data-delay="2">
-          Recevez les factures de vos fournisseurs directement dans l'application,
-          par une plateforme agréée. Elles arrivent avec leur montant, leur échéance
-          et leur suivi — et se mettent à jour toutes seules.
-        </p>
-        <ul class="efacture__points" role="list">
-          <li class="reveal" data-delay="3">Le raccordement se fait <strong>une seule fois</strong>.</li>
-          <li class="reveal" data-delay="3">Plus de factures à chercher dans vos e-mails.</li>
-          <li class="reveal" data-delay="4">Vous pouvez vous en passer : Aumely fonctionne pareil sans.</li>
-        </ul>
-
-        <p class="efacture__precision reveal" data-delay="5">
-          Aumely <strong>reçoit</strong> aujourd'hui vos factures électroniques.
-          Leur <strong>émission</strong> n'est pas encore ouverte.
-        </p>
-      </div>
-
-      <div class="efacture__device reveal" data-delay="2">
-        <div class="phone phone--medium phone--dark" data-parallax="0.05">
-          <div class="phone__screen">
-            <picture>
-               <source srcset="assets/img/facturation-electronique.webp" type="image/webp">
-               <img src="assets/img/facturation-electronique.png"
-                 alt="Écran Facturation électronique d'Aumely : recevez vos factures fournisseurs directement dans l'application, avec le bouton Activer la facturation électronique."
-                 width="1206" height="2622" loading="lazy" decoding="async">
-             </picture>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <p class="efacture__foot wrap reveal" data-delay="5">
-      Une brique de plus dans Aumely — pas une application de plus à ouvrir.
-    </p>
-  </section>
-
-
-  <!-- ══════════════════════════════════════════════════════════
-       9. ANALYSES
+       6. ANALYSES — la vision claire de l'activité
        ══════════════════════════════════════════════════════════ -->
   <section class="analyses" aria-labelledby="analyses-titre">
     <div class="wrap">
@@ -413,68 +564,66 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-       10. LES PROFILS
+       7. FACTURATION ÉLECTRONIQUE
+       Une fonctionnalité importante parmi les autres : elle a sa
+       section, pas le cœur de la page.
        ══════════════════════════════════════════════════════════ -->
-  <section class="profils" aria-labelledby="profils-titre">
-    <div class="wrap">
-      <h2 class="profils__title reveal" id="profils-titre">
-        Une application, votre métier.
-      </h2>
-      <p class="profils__lead reveal" data-delay="1">
-        Votre accueil s'adapte à ce que vous suivez vraiment.
-      </p>
+  <section class="efacture" id="facturation-electronique" aria-labelledby="efacture-titre">
+    <div class="efacture__glow" aria-hidden="true"></div>
 
-      <ul class="profils__tags" role="list">
-        <li class="reveal" data-delay="2">Profession libérale</li>
-        <li class="reveal" data-delay="2">Artisan</li>
-        <li class="reveal" data-delay="3">Commerce &amp; vente</li>
-        <li class="reveal" data-delay="3">Activité agricole</li>
-        <li class="reveal" data-delay="4">Autre activité</li>
-      </ul>
+    <div class="wrap efacture__grid">
+      <div class="efacture__text">
+        <p class="efacture__eyebrow reveal">Facturation électronique</p>
+        <h2 class="efacture__title reveal" data-delay="1" id="efacture-titre">
+          Vos factures fournisseurs,<br><em>déjà dans Aumely.</em>
+        </h2>
+        <p class="efacture__body reveal" data-delay="2">
+          Recevez les factures de vos fournisseurs directement dans l'application,
+          par une plateforme agréée. Elles arrivent avec leur montant, leur échéance
+          et leur suivi — et se mettent à jour toutes seules.
+        </p>
+        <ul class="efacture__points" role="list">
+          <li class="reveal" data-delay="3">Le raccordement se fait <strong>une seule fois</strong>.</li>
+          <li class="reveal" data-delay="3">Plus de factures à chercher dans vos e-mails.</li>
+          <li class="reveal" data-delay="4">Vous pouvez vous en passer : Aumely fonctionne pareil sans.</li>
+        </ul>
 
-      <div class="profils__devices">
-        <div class="phone phone--small reveal" data-delay="3">
+        <p class="efacture__precision reveal" data-delay="5">
+          Aumely <strong>reçoit</strong> aujourd'hui vos factures électroniques.
+          Leur <strong>émission</strong> n'est pas encore ouverte.
+        </p>
+      </div>
+
+      <div class="efacture__device reveal" data-delay="2">
+        <div class="phone phone--medium phone--dark" data-parallax="0.05">
           <div class="phone__screen">
             <picture>
-               <source srcset="assets/img/profil-artisan.webp" type="image/webp">
-               <img src="assets/img/profil-artisan.png"
-                 alt="Accueil d'Aumely configuré pour un artisan, avec le suivi des projets."
-                 width="1206" height="2622" loading="lazy" decoding="async">
-             </picture>
-          </div>
-        </div>
-        <div class="phone phone--small reveal" data-delay="4">
-          <div class="phone__screen">
-            <picture>
-               <source srcset="assets/img/profil-commerce.webp" type="image/webp">
-               <img src="assets/img/profil-commerce.png"
-                 alt="Accueil d'Aumely configuré pour un commerce, avec la répartition des ventes."
-                 width="1206" height="2622" loading="lazy" decoding="async">
-             </picture>
-          </div>
-        </div>
-        <div class="phone phone--small reveal" data-delay="5">
-          <div class="phone__screen">
-            <picture>
-               <source srcset="assets/img/profil-agricole.webp" type="image/webp">
-               <img src="assets/img/profil-agricole.png"
-                 alt="Accueil d'Aumely configuré pour une activité agricole."
+               <source srcset="assets/img/facturation-electronique.webp" type="image/webp">
+               <img src="assets/img/facturation-electronique.png"
+                 alt="Écran Facturation électronique d'Aumely : recevez vos factures fournisseurs directement dans l'application, avec le bouton Activer la facturation électronique."
                  width="1206" height="2622" loading="lazy" decoding="async">
              </picture>
           </div>
         </div>
       </div>
     </div>
+
+    <p class="efacture__foot wrap reveal" data-delay="5">
+      Une brique de plus dans Aumely — pas une application de plus à ouvrir.
+    </p>
   </section>
 
 
   <!-- ══════════════════════════════════════════════════════════
-       11. LE TARIF
+       8. LE TARIF
        ══════════════════════════════════════════════════════════ -->
   <section class="tarif" id="tarif" aria-labelledby="tarif-titre">
     <div class="wrap wrap--narrow">
       <div class="tarif__card reveal">
-        <h2 class="tarif__title" id="tarif-titre">Tout-en-un.</h2>
+        <p class="tarif__eyebrow">Un seul tarif</p>
+        <h2 class="tarif__title" id="tarif-titre">
+          Toute l'application,<br>quelle que soit votre activité.
+        </h2>
 
         <p class="tarif__price">
           <span class="tarif__amount">4,99 €</span>
@@ -483,8 +632,9 @@
 
         <ul class="tarif__points" role="list">
           <li>14 jours d'essai gratuit</li>
-          <li>Sans engagement</li>
+          <li>Sans engagement, résiliable à tout moment</li>
           <li>Toutes les fonctionnalités incluses</li>
+          <li>Aucune option payante en plus</li>
         </ul>
 
         <a class="btn btn--lg btn--full" data-appstore href="#">
@@ -499,19 +649,25 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-       12. CONCLUSION
+       9. CONCLUSION
        ══════════════════════════════════════════════════════════ -->
   <section class="outro" aria-labelledby="outro-titre">
     <div class="wrap wrap--narrow">
-      <img class="outro__icon reveal" src="assets/icon/aumely-icon.png" alt="" width="76" height="76">
+      <picture>
+        <source srcset="assets/icon/aumely-icon.webp" type="image/webp">
+        <img class="outro__icon reveal" src="assets/icon/aumely-icon-320.png" alt="" width="76" height="76">
+      </picture>
       <h2 class="outro__title reveal" data-delay="1" id="outro-titre">
         Votre activité.<br><em>Clair. Simple. Serein.</em>
       </h2>
-      <a class="btn btn--lg reveal" data-delay="2" data-appstore href="#">
+      <p class="outro__lead reveal" data-delay="2">
+        Un seul outil. Toutes les activités.
+      </p>
+      <a class="btn btn--lg reveal" data-delay="3" data-appstore href="#">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.365 1.43c0 1.14-.462 2.12-1.152 2.86-.744.797-1.96 1.41-2.98 1.33-.114-1.1.42-2.24 1.128-2.98.774-.82 2.12-1.42 3.004-1.21zM20.9 17.36c-.53 1.22-.78 1.77-1.46 2.85-.95 1.5-2.29 3.37-3.95 3.38-1.47.02-1.85-.96-3.84-.95-1.99.01-2.41.97-3.88.95-1.66-.02-2.93-1.7-3.88-3.2C1.4 16.9.75 12.9 2.5 10.2c1.24-1.9 3.2-3.03 5.04-3.03 1.88 0 3.06 1.03 4.61 1.03 1.5 0 2.42-1.03 4.6-1.03 1.64 0 3.38.9 4.6 2.44-4.05 2.22-3.39 8-.45 7.75z"/></svg>
         <span>Télécharger sur l'App&nbsp;Store</span>
       </a>
-      <p class="outro__price reveal" data-delay="3">
+      <p class="outro__price reveal" data-delay="4">
         <strong>Tout-en-un pour 4,99 €/mois</strong>
         <span>14 jours gratuits · Sans engagement</span>
       </p>
