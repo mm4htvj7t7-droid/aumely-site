@@ -719,6 +719,9 @@ body.menu-ouvert{ overflow: hidden; }
   position: relative;
   display: flex;
   justify-content: center;
+  /* Voir la note sur .duo__appareil : sans cette ligne, le cadre noir
+     de l'appareil s'étire sous son écran. */
+  align-items: flex-start;
   margin-top: 34px;
   /* Le bas de l'appareil déborde : invite à défiler. */
   margin-bottom: -110px;
@@ -772,7 +775,18 @@ body.menu-ouvert{ overflow: hidden; }
 .duo__texte{ max-width: 480px; text-align: center; }
 .duo__texte h2{ font-size: clamp(1.6rem, 4.2vw, 2.35rem); }
 .duo__texte p{ margin-top: 16px; color: var(--encre-2); }
-.duo__appareil{ position: relative; display: flex; justify-content: center; }
+.duo__appareil{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* INDISPENSABLE : un conteneur flex étire ses enfants sur l'axe
+     transversal. Le second appareil étant décalé vers le bas, la
+     rangée s'allonge — et le cadre du premier, dont le fond est noir,
+     s'étire d'autant SOUS son écran, qui a un rapport fixe. On lisait
+     une grosse bande noire. `flex: none` n'y change rien : il ne joue
+     que sur la largeur. */
+  align-items: flex-start;
+}
 .duo .actions{ margin-top: 24px; justify-content: center; }
 @media (min-width: 880px){
   .duo{ flex-direction: row; justify-content: space-between; gap: 64px; align-items: center; }
@@ -815,7 +829,12 @@ body.menu-ouvert{ overflow: hidden; }
 }
 .profil__texte h2{ font-size: clamp(1.55rem, 4.2vw, 2.2rem); }
 .profil__texte > p{ margin-top: 16px; color: var(--encre-2); }
-.profil__appareil{ position: relative; display: flex; justify-content: center; }
+.profil__appareil{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;      /* même raison que .duo__appareil */
+}
 @media (min-width: 880px){
   .profil{ padding: 68px 0; }
   .profil__grille{ flex-direction: row; justify-content: space-between; gap: 60px; }
@@ -1273,3 +1292,9 @@ a.ressource:hover{
    celle d'en face est au dégradé. La couleur dit la différence avant
    que le texte ne soit lu. */
 .carte--stable .carte__icone{ background: var(--encre); }
+
+
+/* Filet de sécurité : quel que soit le conteneur, un cadre d'appareil
+   ne doit jamais être étiré — sa hauteur vient du rapport de la
+   capture, pas de la rangée qui l'entoure. */
+.tel{ align-self: flex-start; }
