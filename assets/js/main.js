@@ -90,16 +90,63 @@
     var nombre  = etapes.length;
     if (!nombre) return;
 
+    // Part du défilement pendant laquelle deux captures se croisent.
+    // Court : la transition doit être franche, pas molle.
+    var FONDU = 0.34;
+
     var actif = -1;
 
-    function activer(index) {
-      if (index === actif) return;             // rien à faire : évite tout travail inutile
+    /// Adoucit une progression 0→1 : démarrage et arrivée sans à-coup.
+    function adoucir(t) {
+      return t * t * (3 - 2 * t);
+    }
+
+    /// Le texte, lui, ne se croise pas : il bascule d'un bloc à l'autre.
+    function activerTexte(index) {
+      if (index === actif) return;
       actif = index;
       for (var i = 0; i < nombre; i++) {
         var estActif = (i === index);
         if (etapes[i]) etapes[i].classList.toggle('is-active', estActif);
-        if (ecrans[i]) ecrans[i].classList.toggle('is-active', estActif);
         if (points[i]) points[i].classList.toggle('is-active', estActif);
+      }
+    }
+
+    /// Les captures, elles, se fondent l'une dans l'autre en continu :
+    /// c'est ce qui fait la différence entre « ça change » et « ça glisse ».
+    function peindreEcrans(index, fraction) {
+      for (var i = 0; i < nombre; i++) {
+        var ecran = ecrans[i];
+        if (!ecran) continue;
+
+        var opacite = 0;
+        var echelle = 1.05;
+
+        if (i === index) {
+          // Sortante sur la fin du segment — sauf pour la dernière, qui n'a
+          // aucune capture pour la relayer : elle resterait sur un écran vide.
+          var sortie = (fraction > (1 - FONDU) && index + 1 < nombre)
+            ? adoucir((fraction - (1 - FONDU)) / FONDU)
+            : 0;
+          opacite = 1 - sortie;
+          echelle = 1 + sortie * 0.03;
+        } else if (i === index + 1) {
+          // Entrante sur cette même fin de segment.
+          var entree = fraction > (1 - FONDU)
+            ? adoucir((fraction - (1 - FONDU)) / FONDU)
+            : 0;
+          opacite = entree;
+          echelle = 1.05 - entree * 0.05;
+        }
+
+        if (opacite <= 0.001) {
+          ecran.style.opacity = '0';
+          ecran.style.visibility = 'hidden';       // rien à composer hors champ
+        } else {
+          ecran.style.opacity = opacite.toFixed(3);
+          ecran.style.visibility = 'visible';
+          ecran.style.transform = 'scale(' + echelle.toFixed(4) + ')';
+        }
       }
     }
 
@@ -107,19 +154,30 @@
       var rect = section.getBoundingClientRect();
       var hauteurDefilable = rect.height - window.innerHeight;
 
-      // Avant la section, ou section trop courte : on montre la première.
-      if (hauteurDefilable <= 0) { activer(0); return; }
+      if (hauteurDefilable <= 0) {
+        activerTexte(0);
+        peindreEcrans(0, 0);
+        return;
+      }
 
-      var avancement = (-rect.top) / hauteurDefilable;      // 0 → 1
-      var index = Math.floor(avancement * nombre);
+      var avancement = (-rect.top) / hauteurDefilable;
+      if (avancement < 0) avancement = 0;
+      if (avancement > 1) avancement = 1;
 
-      if (index < 0) index = 0;
+      var position = avancement * nombre;
+      var index = Math.floor(position);
       if (index > nombre - 1) index = nombre - 1;
+      var fraction = position - index;
 
-      activer(index);
+      // Le texte bascule au moment où la capture entrante prend le dessus.
+      activerTexte(fraction > (1 - FONDU / 2) && index < nombre - 1
+                   ? index + 1
+                   : index);
+      peindreEcrans(index, fraction);
     }
 
-    activer(0);
+    activerTexte(0);
+    peindreEcrans(0, 0);
     lierAuDefilement(calculer);
   }
 
