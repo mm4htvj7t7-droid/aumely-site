@@ -36,6 +36,7 @@ au format `clé: valeur`, séparé du contenu par une ligne `---` :
     <section> … le contenu de la page … </section>
 """
 
+import hashlib
 import io
 import os
 import re
@@ -53,6 +54,21 @@ ONGLETS = ["index", "fonctionnalites", "pour-qui", "tarifs",
 
 def lire(chemin):
     return io.open(chemin, encoding="utf-8").read()
+
+
+def empreinte(chemin):
+    """Huit caractères tirés du contenu du fichier.
+
+    Sert à suffixer l'adresse de la feuille de style et du script
+    (`site.css?v=ab12cd34`). Sans ça, un navigateur qui a déjà visité le
+    site continue de servir SA copie : les corrections n'arrivent jamais
+    chez les visiteurs déjà venus, et on croit à tort que la mise en
+    ligne a échoué. Le suffixe change dès que le fichier change, jamais
+    autrement — le cache reste donc pleinement efficace entre deux
+    versions.
+    """
+    with open(chemin, "rb") as f:
+        return hashlib.sha256(f.read()).hexdigest()[:8]
 
 
 def decouper(texte, nom):
@@ -78,6 +94,8 @@ def decouper(texte, nom):
 
 def construire():
     gabarit = lire(os.path.join(SOURCE, "gabarit.html"))
+    version_css = empreinte(os.path.join(RACINE, "assets/css/site.css"))
+    version_js = empreinte(os.path.join(RACINE, "assets/js/site.js"))
     fichiers = sorted(f for f in os.listdir(PAGES) if f.endswith(".html"))
     if not fichiers:
         raise SystemExit("Aucune page trouvée dans %s" % PAGES)
@@ -95,6 +113,8 @@ def construire():
         page = page.replace("{{PRECHARGEMENT}}", champs.get("prechargement", ""))
         page = page.replace("{{DONNEES_STRUCTUREES}}", champs.get("donnees", ""))
         page = page.replace("{{CONTENU}}", contenu)
+        page = page.replace("{{V_CSS}}", version_css)
+        page = page.replace("{{V_JS}}", version_js)
 
         # Onglet actif. Par défaut, la page elle-même ; le champ
         # « onglet » permet à une sous-page (la FAQ, par exemple) de
@@ -118,6 +138,7 @@ def construire():
     for fichier, taille in produits:
         print("  %-*s  %5d octets" % (largeur, fichier, taille))
     print("\n%d pages construites." % len(produits))
+    print("Version des fichiers : style %s · script %s" % (version_css, version_js))
 
 
 if __name__ == "__main__":

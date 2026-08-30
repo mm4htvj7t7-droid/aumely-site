@@ -57,6 +57,17 @@ Après toute modification :
 Le script réécrit les pages finies à la racine. Ce sont elles qui sont
 publiées.
 
+### Le cache des navigateurs est géré tout seul
+
+Le script suffixe la feuille de style et le script d'une empreinte de
+leur contenu (`site.css?v=93d11526`). Elle change dès que le fichier
+change — et alors seulement.
+
+C'est ce qui garantit qu'une correction arrive vraiment chez les
+visiteurs déjà venus. Sans ce suffixe, leur navigateur continue de
+servir SA copie du fichier, parfois pendant des jours : on croit alors
+que la mise en ligne a échoué alors que le site est correct.
+
 **Pourquoi ce détour ?** Sans lui, la navigation existerait en onze
 exemplaires, et un changement de menu obligerait à corriger onze fichiers.
 Un menu désynchronisé d'une page à l'autre est exactement ce qui fait
