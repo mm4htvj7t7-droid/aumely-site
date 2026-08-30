@@ -1,0 +1,3 @@
+# Prototype en cours de validation : ne pas indexer.
+User-agent: *
+Disallow: /
