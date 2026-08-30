@@ -1248,3 +1248,9 @@ a.ressource:hover{
 }
 .tableau-defilant{ overflow-x: auto; margin-bottom: 20px; }
 .tableau-defilant table{ margin-bottom: 0; min-width: 380px; }
+
+
+/* La carte « ce qui ne change pas » : son icône reste à l'encre, quand
+   celle d'en face est au dégradé. La couleur dit la différence avant
+   que le texte ne soit lu. */
+.carte--stable .carte__icone{ background: var(--encre); }

@@ -123,21 +123,39 @@
   <!-- ══════════════════════════════════════════════════════════
        Une note d'honnêteté, placée avant les fiches : elle évite
        de laisser croire à des modules spécialisés par métier.
+
+       Le propos est une opposition — ce qui bouge / ce qui ne bouge
+       pas. Deux colonnes le disent donc mieux qu'un pavé : la mise
+       en page porte le sens au lieu de l'habiller.
        ══════════════════════════════════════════════════════════ -->
-  <section class="section" style="padding-bottom: 0;">
-    <div class="zone zone--etroit">
-      <div class="carte monte" style="background: var(--brume); border-style: dashed;">
-        <h3>Ce qui change, et ce qui ne change pas</h3>
-        <p>
-          Ce qui change : l’écran d’accueil, les raccourcis mis en avant, et le
-          vocabulaire employé — « prestations », « ventes », « honoraires » ou
-          « production » selon votre activité.
-        </p>
-        <p style="margin-top: 12px;">
-          Ce qui ne change pas : recettes, dépenses, clients, devis, factures,
-          échéances et analyses sont là pour tout le monde, quel que soit le
-          profil choisi. Et vous pouvez en changer à tout moment.
-        </p>
+  <section class="section section--brume" aria-labelledby="change-titre">
+    <div class="zone zone--moyen">
+      <div class="section__tete">
+        <h2 class="monte" id="change-titre">Ce qui change,<br>et ce qui ne change pas</h2>
+      </div>
+
+      <div class="grille grille--2">
+        <article class="carte monte">
+          <span class="carte__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>
+          </span>
+          <p>
+            Ce qui change : l’écran d’accueil, les raccourcis mis en avant, et le
+            vocabulaire employé — « prestations », « ventes », « honoraires » ou
+            « production » selon votre activité.
+          </p>
+        </article>
+
+        <article class="carte carte--stable monte" data-d="1">
+          <span class="carte__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2.2"/><path d="M8 10.5V7.8a4 4 0 018 0v2.7"/></svg>
+          </span>
+          <p>
+            Ce qui ne change pas : recettes, dépenses, clients, devis, factures,
+            échéances et analyses sont là pour tout le monde, quel que soit le
+            profil choisi. Et vous pouvez en changer à tout moment.
+          </p>
+        </article>
       </div>
     </div>
   </section>

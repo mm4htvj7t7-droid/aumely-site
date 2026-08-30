@@ -73,7 +73,9 @@ Un menu désynchronisé d'une page à l'autre est exactement ce qui fait
 
 ---
 
-## À faire le jour de la publication sur l'App Store
+## ✅ À faire le jour de la mise en ligne
+
+### 1. Le lien App Store
 
 **Une seule ligne à changer**, en haut de `assets/js/site.js` :
 
@@ -89,6 +91,36 @@ puis relancer `python3 construire-site.py`.
 Tant que la valeur reste `null`, aucun bouton ne mène à un lien mort :
 ils ramènent à la page Tarifs, et sur cette page à l'encadré qui explique
 où en est la mise en ligne.
+
+### 2. ⚠️ Vérifier que le mail arrive vraiment
+
+Le site écrit à **contact@aumely.com** — page Contact, page Assistance,
+pied de page, et le formulaire.
+
+**Avant la mise en ligne, faire ce test :**
+
+1. Envoyer un message à `contact@aumely.com` depuis une autre adresse.
+2. Vérifier qu'il arrive bien dans la boîte relevée tous les jours.
+
+Si rien n'arrive, l'alias n'existe pas encore : le créer dans l'espace
+client **OVH** (les MX du domaine pointent bien sur OVH, le domaine
+reçoit donc du courrier — c'est l'alias `contact@` qui doit exister).
+
+**Pour changer d'adresse**, une seule ligne dans `assets/js/site.js` :
+
+    var boite = ['contact', 'aumely.com'].join('@');
+
+… et les liens visibles `mailto:` dans `_source/pages/contact.html`,
+`_source/pages/support.html` et `_source/gabarit.html`.
+
+### 3. Ce que le formulaire fait, et ne fait pas
+
+Il **n'envoie rien lui-même** : un site statique n'a pas de serveur pour
+cela. Il ouvre la messagerie du visiteur avec un message déjà rédigé et
+déjà adressé ; c'est le visiteur qui appuie sur Envoyer.
+
+Pour un vrai envoi depuis le site, il faudrait brancher un service tiers
+(Brevo est déjà présent sur le domaine, ou Formspree).
 
 ---
 
