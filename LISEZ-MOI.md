@@ -132,9 +132,9 @@ Connect. Elles gardent leurs adresses et restent accessibles.
 - **Confidentialité** : le texte a été repris **au caractère près**,
   seule la mise en page a changé. Vérifié par comparaison automatique.
 - **Assistance** : le formulaire de contact fonctionne à l'identique
-  (il ouvre un message dans la messagerie du visiteur, adressé à
-  `aumely@outlook.fr`, adresse qui n'apparaît jamais à l'écran).
-  La page a gagné une rubrique « Avant de nous écrire ».
+  (il ouvre un message dans la messagerie du visiteur, désormais adressé
+  à `contact@aumely.com`). La page a gagné une rubrique « Avant de nous
+  écrire ».
 
 Ne jamais supprimer ces deux fichiers ni changer leur nom.
 
