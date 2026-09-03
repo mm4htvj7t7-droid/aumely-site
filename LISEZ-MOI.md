@@ -117,7 +117,23 @@ domaine nu, `www` en CNAME vers `mm4htvj7t7-droid.github.io.`, et les
 deux redirections OVH (« site en construction ») supprimées. Les MX et le
 SPF n'ont pas été touchés : la messagerie continue de fonctionner.
 
-### 3. ⚠️ Vérifier que le mail arrive vraiment
+### 3. L'adresse de contact — PROVISOIRE
+
+Le site écrit à **contact@aumely.fr**. Aujourd'hui, ce n'est pas une vraie
+boîte : c'est une redirection vers contact@aumely.com, la boîte relevée
+dans l'application Mail.
+
+**À changer quand vous voudrez** : Yamin souhaite une vraie boîte
+contact@aumely.fr, sans redirection. Cela demande une offre e-mail chez
+OVH — la formule actuelle sur aumely.fr est « redirect », elle autorise
+1000 redirections mais zéro compte. Une fois la boîte créée, supprimer la
+redirection et l'ajouter dans Mail ; le site, lui, n'a rien à changer :
+il affiche déjà la bonne adresse.
+
+L'adresse déclarée à Apple reste contact@aumely.com tant qu'une version
+est en cours de vérification.
+
+### 4. ⚠️ Vérifier que le mail arrive vraiment
 
 Le site écrit à **contact@aumely.com** — page Contact, page Assistance,
 pied de page, et le formulaire.
@@ -138,7 +154,7 @@ reçoit donc du courrier — c'est l'alias `contact@` qui doit exister).
 … et les liens visibles `mailto:` dans `_source/pages/contact.html`,
 `_source/pages/support.html` et `_source/gabarit.html`.
 
-### 4. Ce que le formulaire fait, et ne fait pas
+### 5. Ce que le formulaire fait, et ne fait pas
 
 Il **n'envoie rien lui-même** : un site statique n'a pas de serveur pour
 cela. Il ouvre la messagerie du visiteur avec un message déjà rédigé et
