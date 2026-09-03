@@ -21,7 +21,7 @@
      Tant que la valeur reste null, aucun bouton ne ment : ils
      mènent à la page Tarifs plutôt que vers un lien mort.
      ═══════════════════════════════════════════════════════════ */
-  var URL_APP_STORE = null;
+  var URL_APP_STORE = "https://apps.apple.com/fr/app/id6804767478";
 
   var mouvementReduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
