@@ -103,7 +103,21 @@ Tant que la valeur reste `null`, aucun bouton ne mène à un lien mort :
 ils ramènent à la page Tarifs, et sur cette page à l'encadré qui explique
 où en est la mise en ligne.
 
-### 2. ⚠️ Vérifier que le mail arrive vraiment
+### 2. Le nom de domaine — FAIT le 03/09/2026
+
+Le site répond sur **aumely.fr**, et non sur le `.com`.
+
+Les deux domaines existent et vous appartenez tous les deux, mais ils ont
+été achetés sous **deux comptes OVH différents**. `aumely.fr` est celui
+dont vous avez la main dans le compte courant — c'est donc celui qui a
+été retenu.
+
+Zone DNS d'`aumely.fr` : les quatre adresses de GitHub Pages sur le
+domaine nu, `www` en CNAME vers `mm4htvj7t7-droid.github.io.`, et les
+deux redirections OVH (« site en construction ») supprimées. Les MX et le
+SPF n'ont pas été touchés : la messagerie continue de fonctionner.
+
+### 3. ⚠️ Vérifier que le mail arrive vraiment
 
 Le site écrit à **contact@aumely.com** — page Contact, page Assistance,
 pied de page, et le formulaire.
@@ -124,7 +138,7 @@ reçoit donc du courrier — c'est l'alias `contact@` qui doit exister).
 … et les liens visibles `mailto:` dans `_source/pages/contact.html`,
 `_source/pages/support.html` et `_source/gabarit.html`.
 
-### 3. Ce que le formulaire fait, et ne fait pas
+### 4. Ce que le formulaire fait, et ne fait pas
 
 Il **n'envoie rien lui-même** : un site statique n'a pas de serveur pour
 cela. Il ouvre la messagerie du visiteur avec un message déjà rédigé et
