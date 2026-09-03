@@ -117,18 +117,23 @@ domaine nu, `www` en CNAME vers `mm4htvj7t7-droid.github.io.`, et les
 deux redirections OVH (« site en construction ») supprimées. Les MX et le
 SPF n'ont pas été touchés : la messagerie continue de fonctionner.
 
-### 3. L'adresse de contact — PROVISOIRE
+### 3. L'adresse de contact
 
-Le site écrit à **contact@aumely.fr**. Aujourd'hui, ce n'est pas une vraie
-boîte : c'est une redirection vers contact@aumely.com, la boîte relevée
-dans l'application Mail.
+Le site écrit à **contact@aumely.fr**, et c'est une vraie boîte depuis le
+03/09/2026 : offre Zimbra Starter chez OVH, 15 Go, relevée sur iPhone et
+sur Mac. La redirection provisoire vers contact@aumely.com a été
+supprimée — elle occupait l'adresse et empêchait la création du compte.
 
-**À changer quand vous voudrez** : Yamin souhaite une vraie boîte
-contact@aumely.fr, sans redirection. Cela demande une offre e-mail chez
-OVH — la formule actuelle sur aumely.fr est « redirect », elle autorise
-1000 redirections mais zéro compte. Une fois la boîte créée, supprimer la
-redirection et l'ajouter dans Mail ; le site, lui, n'a rien à changer :
-il affiche déjà la bonne adresse.
+Deux pièges rencontrés, notés ici pour ne pas les revivre :
+
+- **Le port 465 ne passait pas sur le Mac.** Les serveurs sont
+  `ssl0.ovh.net` en réception comme en envoi ; « Utiliser TLS/SSL » doit
+  être coché, faute de quoi l'envoi échoue sur une erreur SMTP « (null) »
+  qui ne dit rien.
+- **Un compte ajouté depuis Réglages Système → Comptes Internet ne garde
+  pas ses réglages** : macOS réapplique les siens et l'envoi reste
+  bloqué. Il faut l'ajouter depuis Mail → Ajouter un compte → Autre
+  compte Mail.
 
 L'adresse déclarée à Apple reste contact@aumely.com tant qu'une version
 est en cours de vérification.
