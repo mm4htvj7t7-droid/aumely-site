@@ -141,7 +141,7 @@
     if (!formulaire) return;
 
     var aide = document.getElementById('formulaire-aide');
-    var boite = ['contact', 'aumely.com'].join('@');
+    var boite = ['contact', 'aumely.fr'].join('@');
 
     formulaire.addEventListener('submit', function (evenement) {
       evenement.preventDefault();
