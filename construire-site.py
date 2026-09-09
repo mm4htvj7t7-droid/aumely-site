@@ -96,6 +96,15 @@ def construire():
     gabarit = lire(os.path.join(SOURCE, "gabarit.html"))
     version_css = empreinte(os.path.join(RACINE, "assets/css/site.css"))
     version_js = empreinte(os.path.join(RACINE, "assets/js/site.js"))
+    # L'ICÔNE ET L'APERÇU DE PARTAGE AUSSI, ET POUR LA MÊME RAISON.
+    #
+    # Ils gardent leur nom d'un logo à l'autre. Sans suffixe, un visiteur
+    # déjà venu — et le cache du réseau de diffusion — continueraient de
+    # servir l'ANCIEN logo pendant des jours, y compris dans l'onglet du
+    # navigateur, alors que le fichier est bien remplacé sur le serveur.
+    # C'est exactement le genre de mise en ligne qu'on croit ratée.
+    version_icone = empreinte(os.path.join(RACINE, "assets/icon/aumely-icon-320.png"))
+    version_partage = empreinte(os.path.join(RACINE, "assets/img/apercu-partage.png"))
     fichiers = sorted(f for f in os.listdir(PAGES) if f.endswith(".html"))
     if not fichiers:
         raise SystemExit("Aucune page trouvée dans %s" % PAGES)
@@ -115,6 +124,8 @@ def construire():
         page = page.replace("{{CONTENU}}", contenu)
         page = page.replace("{{V_CSS}}", version_css)
         page = page.replace("{{V_JS}}", version_js)
+        page = page.replace("{{V_ICONE}}", version_icone)
+        page = page.replace("{{V_PARTAGE}}", version_partage)
 
         # Onglet actif. Par défaut, la page elle-même ; le champ
         # « onglet » permet à une sous-page (la FAQ, par exemple) de
