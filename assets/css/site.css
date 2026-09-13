@@ -199,6 +199,51 @@ button{ font: inherit; }
   color: var(--encre-3);
 }
 
+/* Les plateformes, sous un bouton de téléchargement : ce qui est
+   disponible, et ce qui arrive. Android n'a NI lien NI bouton tant que
+   la fiche Google Play n'existe pas — une pastille « Android » et la
+   mention, rien qui puisse se prendre pour un téléchargement. */
+.plateformes{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 14px;
+  margin-top: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--encre-3);
+}
+.plateformes__android{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  max-width: 100%;
+  padding: 5px 13px;
+  border: 1px solid var(--trait-2);
+  border-radius: 99px;
+  background: var(--brume);
+  color: var(--encre-2);
+  text-align: center;
+  line-height: 1.35;
+}
+/* Sur un petit écran, la mention tient sur une ligne en 13 px ; au-delà
+   elle passerait à la ligne dans sa pastille, centrée, sans déborder. */
+@media (max-width: 480px){ .plateformes{ font-size: 13px; } }
+/* Le robot Android, dans son vert officiel (#3DDC84), comme la pomme
+   dans le bouton App Store : un logo, pas une couleur d'interface. */
+.plateformes__logo{ width: 16px; height: 16px; flex: none; }
+.plateformes__android > span{ text-align: center; }
+.plateformes__android strong{ color: var(--encre); font-weight: 700; }
+.rappel .plateformes{ color: rgba(255,255,255,.55); margin-top: 6px; width: 100%; }
+.rappel .plateformes__android{
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.8);
+}
+.rappel .plateformes__android strong{ color: #fff; }
+
 
 /* ══════════════════════════════════════════════════════════════
    EN-TÊTE ET NAVIGATION
