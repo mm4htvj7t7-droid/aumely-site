@@ -103,7 +103,7 @@ def construire():
     # servir l'ANCIEN logo pendant des jours, y compris dans l'onglet du
     # navigateur, alors que le fichier est bien remplacé sur le serveur.
     # C'est exactement le genre de mise en ligne qu'on croit ratée.
-    version_icone = empreinte(os.path.join(RACINE, "assets/icon/aumely-icon-320.png"))
+    version_icone = empreinte(os.path.join(RACINE, "assets/icon/aumely-logo-2026-512.png"))
     version_partage = empreinte(os.path.join(RACINE, "assets/img/apercu-partage.png"))
     fichiers = sorted(f for f in os.listdir(PAGES) if f.endswith(".html"))
     if not fichiers:
