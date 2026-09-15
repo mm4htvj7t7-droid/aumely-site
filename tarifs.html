@@ -28,8 +28,10 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-title" content="Aumely">
 
-<link rel="icon" href="assets/icon/aumely-icon-320.png?v=4ad1c53c" type="image/png">
-<link rel="apple-touch-icon" href="assets/icon/aumely-icon-320.png?v=4ad1c53c">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/icon/aumely-logo-2026-512.png?v=4ad1c53c">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon/aumely-logo-2026-32.png?v=4ad1c53c">
+<link rel="shortcut icon" href="favicon.ico?v=4ad1c53c">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icon/aumely-logo-2026-180.png?v=4ad1c53c">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +43,7 @@
      jamais une condition d'affichage. -->
 <script>document.documentElement.className += " js";</script>
 
-<link rel="stylesheet" href="assets/css/site.css?v=f12f5a36">
+<link rel="stylesheet" href="assets/css/site.css?v=ce8073bf">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Aumely","description":"Application de gestion pour les indépendants, sur iPhone.","brand":{"@type":"Brand","name":"Aumely"},"offers":[{"@type":"Offer","name":"Aumely","price":"0","priceCurrency":"EUR","availability":"https://schema.org/InStock","description":"Gratuit : recettes, dépenses et résultat du mois, sans limite."},{"@type":"Offer","name":"Aumely Plus","price":"4.99","priceCurrency":"EUR","availability":"https://schema.org/InStock","description":"4,99 € par mois (ou 49,99 € par an) : factures, devis, facturation électronique, clients, analyses. 14 jours offerts, sans engagement."}]}</script>
 </head>
 <body>
@@ -52,8 +54,8 @@
   <div class="entete__inner">
     <a class="marque" href="index.html" aria-label="Aumely, accueil">
       <picture>
-        <source srcset="assets/icon/aumely-icon.webp?v=4ad1c53c" type="image/webp">
-        <img src="assets/icon/aumely-icon-320.png?v=4ad1c53c" alt="" width="30" height="30">
+        <source srcset="assets/icon/aumely-logo-2026-512.webp?v=4ad1c53c" type="image/webp">
+        <img src="assets/icon/aumely-logo-2026-512.png?v=4ad1c53c" alt="" width="30" height="30">
       </picture>
       <span>Aumely</span>
     </a>
@@ -191,50 +193,45 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-       CE QUI EST COMPRIS
+       GRATUIT OU PLUS ? — le tableau, ligne par ligne
        ══════════════════════════════════════════════════════════ -->
   <section class="section section--brume" aria-labelledby="compris-titre">
-    <div class="zone">
+    <div class="zone zone--moyen">
       <div class="section__tete">
-        <h2 class="monte" id="compris-titre">Ce que comprend<br>Aumely Plus.</h2>
+        <h2 class="monte" id="compris-titre">Gratuit ou Plus&nbsp;?<br><em>Ligne par ligne.</em></h2>
         <p class="monte" data-d="1">
-          Tout ce qui n’est pas dans la version gratuite. Il n’y a pas de
-          formule au-dessus, ni d’option en supplément.
+          Ce que vous avez sans rien payer, et ce qu’ajoute Aumely Plus.
+          Il n’y a pas de formule au-dessus, ni d’option en supplément.
         </p>
       </div>
 
-      <div class="grille">
-        <article class="carte monte">
-          <h3>Canaux, catégories &amp; règlements</h3>
-          <p>Recettes et dépenses restent gratuites ; Plus ajoute vos canaux
-             d’activité, catégories et modes de règlement personnalisés, et
-             l’accueil adapté à votre métier.</p>
-        </article>
-        <article class="carte monte" data-d="1">
-          <h3>Clients &amp; rendez-vous</h3>
-          <p>Fiches entreprise et particulier, historique des documents,
-             agenda relié à vos clients.</p>
-        </article>
-        <article class="carte monte" data-d="2">
-          <h3>Devis &amp; factures</h3>
-          <p>Numérotation continue, TVA, mentions légales, votre logo, suivi
-             des statuts et partage du PDF.</p>
-        </article>
-        <article class="carte monte" data-d="1">
-          <h3>Analyses</h3>
-          <p>Évolution, répartition, prévision de fin de mois, chiffres clés,
-             rapport mensuel et export CSV.</p>
-        </article>
-        <article class="carte monte" data-d="2">
-          <h3>Échéances &amp; URSSAF</h3>
-          <p>Échéances récurrentes, estimation des cotisations et montant
-             conseillé à mettre de côté.</p>
-        </article>
-        <article class="carte monte" data-d="3">
-          <h3>Facturation électronique</h3>
-          <p>Réception de vos factures fournisseurs par une plateforme agréée,
-             sans supplément.</p>
-        </article>
+      <div class="comparatif monte" data-d="1">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Fonctionnalité</th>
+              <th scope="col">Gratuit</th>
+              <th scope="col">Aumely Plus</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr><th scope="row">Vos recettes, canal par canal</th><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Vos dépenses, avec justificatif photo</th><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Votre résultat du mois (entrées, sorties, résultat)</th><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Sans publicité, sans revente de vos données</th><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Mises à jour de l’application</th><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Accueil adapté à votre métier (blocs, aperçu rapide, accès rapides)</th><td><span class="comparatif__non" role="img" aria-label="Non inclus">✕</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Canaux d’activité, catégories et modes de règlement personnalisés</th><td><span class="comparatif__non" role="img" aria-label="Non inclus">✕</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Clients et documents rattachés</th><td><span class="comparatif__non" role="img" aria-label="Non inclus">✕</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Devis et factures (PDF, logo, numérotation, TVA)</th><td><span class="comparatif__non" role="img" aria-label="Non inclus">✕</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Facturation électronique</th><td><span class="comparatif__non" role="img" aria-label="Non inclus">✕</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Rendez-vous, projets et temps passé</th><td><span class="comparatif__non" role="img" aria-label="Non inclus">✕</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Échéances, objectifs et simulateur URSSAF</th><td><span class="comparatif__non" role="img" aria-label="Non inclus">✕</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Analyses et rapport mensuel</th><td><span class="comparatif__non" role="img" aria-label="Non inclus">✕</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Exports CSV et import de fichiers</th><td><span class="comparatif__non" role="img" aria-label="Non inclus">✕</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          <tr><th scope="row">Personnalisation de l’accueil et du menu Ajouter</th><td><span class="comparatif__non" role="img" aria-label="Non inclus">✕</span></td><td><span class="comparatif__oui" role="img" aria-label="Inclus">✓</span></td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -368,8 +365,8 @@
       <div class="pied__marque">
         <a class="marque" href="index.html">
           <picture>
-            <source srcset="assets/icon/aumely-icon.webp?v=4ad1c53c" type="image/webp">
-            <img src="assets/icon/aumely-icon-320.png?v=4ad1c53c" alt="" width="30" height="30">
+            <source srcset="assets/icon/aumely-logo-2026-512.webp?v=4ad1c53c" type="image/webp">
+            <img src="assets/icon/aumely-logo-2026-512.png?v=4ad1c53c" alt="" width="30" height="30">
           </picture>
           <span>Aumely</span>
         </a>
