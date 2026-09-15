@@ -1,8 +1,8 @@
 titre: Aumely — L’application de gestion qui s’adapte à votre activité
-description: Recettes, dépenses, clients, devis, factures et analyses dans une seule application iPhone, qui s’adapte à votre métier — artisan, commerce, e-commerce, profession libérale, agriculture. 4,99 €/mois, 14 jours gratuits, sans engagement.
+description: Recettes, dépenses, clients, devis, factures et analyses dans une seule application iPhone, qui s’adapte à votre métier — artisan, commerce, e-commerce, profession libérale, agriculture. Gratuite pour l’essentiel ; Aumely Plus à 4,99 €/mois, facturation électronique incluse, 14 jours offerts.
 fichier: index.html
 prechargement: <link rel="preload" as="image" href="assets/img/accueil.webp" type="image/webp" fetchpriority="high">
-donnees: <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Aumely","applicationCategory":"BusinessApplication","operatingSystem":"iOS 17","inLanguage":"fr-FR","url":"https://aumely.fr/","description":"Application de gestion quotidienne pour les indépendants : livre des recettes, dépenses, clients, rendez-vous, devis, factures, échéances, analyses et réception des factures électroniques. L'accueil s'adapte à l'activité.","offers":{"@type":"Offer","price":"4.99","priceCurrency":"EUR","description":"4,99 € par mois. 14 jours d'essai gratuit, sans engagement."}}</script>
+donnees: <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Aumely","applicationCategory":"BusinessApplication","operatingSystem":"iOS 17","inLanguage":"fr-FR","url":"https://aumely.fr/","description":"Application de gestion quotidienne pour les indépendants : livre des recettes, dépenses, clients, rendez-vous, devis, factures, échéances, analyses et réception des factures électroniques. L'accueil s'adapte à l'activité.","offers":[{"@type":"Offer","name":"Aumely","price":"0","priceCurrency":"EUR","description":"Gratuit : recettes, dépenses et résultat du mois."},{"@type":"Offer","name":"Aumely Plus","price":"4.99","priceCurrency":"EUR","description":"4,99 € par mois : factures, devis, facturation électronique, clients, analyses. 14 jours offerts, sans engagement."}]}</script>
 ---
   <!-- ══════════════════════════════════════════════════════════
        HÉROS
@@ -36,7 +36,7 @@ donnees: <script type="application/ld+json">{"@context":"https://schema.org","@t
         </div>
 
         <p class="heros__mention monte" data-d="4">
-          14 jours gratuits, puis 4,99 €/mois · Sans engagement
+          Gratuit pour vos recettes, vos dépenses et votre résultat · Aumely&nbsp;Plus : 4,99 €/mois, 14 jours offerts
         </p>
         <p class="plateformes monte" data-d="4">
           <span>Disponible sur iPhone</span>
@@ -67,8 +67,8 @@ donnees: <script type="application/ld+json">{"@context":"https://schema.org","@t
   <section class="preuves" aria-label="L’essentiel à savoir">
     <div class="zone">
       <ul class="preuves__grille">
-        <li class="preuve monte"><strong>14 jours gratuits</strong><span>Puis 4,99 €/mois</span></li>
-        <li class="preuve monte" data-d="1"><strong>Sans engagement</strong><span>Résiliable à tout moment</span></li>
+        <li class="preuve monte"><strong>Gratuit</strong><span>Recettes, dépenses et résultat, sans limite</span></li>
+        <li class="preuve monte" data-d="1"><strong>Aumely Plus</strong><span>4,99 €/mois · 14 jours offerts · Sans engagement</span></li>
         <li class="preuve monte" data-d="2"><strong>Sans publicité</strong><span>Vos données restent les vôtres</span></li>
         <li class="preuve monte" data-d="3"><strong>Sur iPhone</strong><span>iOS 17 ou plus récent</span></li>
       </ul>
@@ -314,29 +314,49 @@ donnees: <script type="application/ld+json">{"@context":"https://schema.org","@t
     <div class="zone">
       <div class="section__tete">
         <span class="sur-titre monte">Tarif</span>
-        <h2 class="monte" id="tarif-titre">Un seul prix.<br><em>Tout compris.</em></h2>
+        <h2 class="monte" id="tarif-titre">Gratuit.<br><em>Et Plus si vous voulez.</em></h2>
       </div>
 
-      <div class="offre monte" data-d="1">
-        <span class="offre__ruban">Essai gratuit de 14 jours</span>
-        <p class="offre__prix">
-          <span class="offre__montant">4,99 €</span>
-          <span class="offre__periode">/ mois</span>
-        </p>
-        <p class="offre__sous">Après vos 14 jours d’essai gratuit.</p>
+      <div class="offres monte" data-d="1">
+        <div class="offre offre--gratuit">
+          <span class="offre__ruban">L’application</span>
+          <p class="offre__prix">
+            <span class="offre__montant">Gratuit</span>
+          </p>
+          <p class="offre__sous">Pour toujours, sans limite d’opérations.</p>
 
-        <ul class="points">
-          <li>Toutes les fonctionnalités incluses</li>
-          <li>Sans engagement, résiliable à tout moment</li>
-          <li>Aucune option payante en supplément</li>
-          <li>Sans publicité</li>
-        </ul>
+          <ul class="points">
+            <li>Vos recettes</li>
+            <li>Vos dépenses, avec justificatif</li>
+            <li>Votre résultat du mois</li>
+            <li>Sans publicité</li>
+          </ul>
 
-        <a class="bouton bouton--degrade bouton--grand bouton--pleine-largeur"
-           data-appstore href="tarifs.html">Commencer gratuitement</a>
-        <p class="offre__note">
-          <a href="tarifs.html" style="text-decoration: underline;">Voir le détail du tarif</a>
-        </p>
+          <a class="bouton bouton--clair bouton--grand bouton--pleine-largeur"
+             data-appstore href="tarifs.html">Télécharger gratuitement</a>
+        </div>
+
+        <div class="offre">
+          <span class="offre__ruban">Aumely Plus · 14 jours offerts</span>
+          <p class="offre__prix">
+            <span class="offre__montant">4,99 €</span>
+            <span class="offre__periode">/ mois</span>
+          </p>
+          <p class="offre__sous">Sans engagement, résiliable à tout moment.</p>
+
+          <ul class="points">
+            <li>Factures et devis</li>
+            <li>Facturation électronique incluse</li>
+            <li>Clients, rendez-vous, projets</li>
+            <li>Analyses, échéances, URSSAF, exports</li>
+          </ul>
+
+          <a class="bouton bouton--degrade bouton--grand bouton--pleine-largeur"
+             data-appstore href="tarifs.html">Essayer Plus 14 jours</a>
+          <p class="offre__note">
+            <a href="tarifs.html" style="text-decoration: underline;">Voir le détail des offres</a>
+          </p>
+        </div>
       </div>
     </div>
   </section>

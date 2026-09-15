@@ -936,6 +936,24 @@ body.menu-ouvert{ overflow: hidden; }
 .offre__note{ margin-top: 16px; font-size: 13.5px; color: var(--encre-3); }
 @media (min-width: 768px){ .offre{ padding: 52px 44px 40px; } }
 
+/* Deux offres côte à côte : l'application gratuite, puis Aumely Plus.
+   Le visiteur doit voir d'un coup d'œil que la gratuité n'est pas un
+   essai — c'est une colonne à part entière, avant la payante. */
+.offres{
+  display: grid;
+  gap: 18px;
+  max-width: 980px;
+  margin-inline: auto;
+  align-items: stretch;
+}
+.offres .offre{ max-width: none; margin-inline: 0; display: flex; flex-direction: column; }
+.offres .offre .points{ flex: 1; }
+.offre--gratuit{ box-shadow: none; background: var(--brume, #f7f7fb); }
+.offre--gratuit .offre__ruban{ background: var(--brume-2, #ececf6); color: var(--encre-2, #4a4a5e); }
+@media (min-width: 768px){
+  .offres{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 
 /* ══════════════════════════════════════════════════════════════
    FAQ — repliables natifs
