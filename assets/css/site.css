@@ -1365,6 +1365,8 @@ a.ressource:hover{
 
 /* ══════════════════════════════════════════════════════════════
    COMPARATIF — Gratuit / Aumely Plus, sur la page Tarifs
+   Un tableau, ligne par ligne : chaque fonctionnalité avec ✓ ou ✕ (ou
+   une valeur), et les deux offres en tête avec leur prix.
    ══════════════════════════════════════════════════════════════ */
 .comparatif{
   background: #fff;
@@ -1372,39 +1374,56 @@ a.ressource:hover{
   border-radius: var(--r-lg);
   overflow: hidden;
   box-shadow: 0 40px 80px -50px rgba(15,14,28,.35);
+  overflow-x: auto;
 }
-.comparatif table{ width: 100%; border-collapse: collapse; }
+.comparatif table{ width: 100%; border-collapse: collapse; min-width: 640px; }
 .comparatif th, .comparatif td{
-  padding: 14px 16px;
+  padding: 13px 18px;
   border-top: 1px solid var(--trait);
   text-align: left;
   font-size: 15px;
   line-height: 1.35;
+  vertical-align: middle;
 }
 .comparatif thead th{
   border-top: 0;
   background: var(--brume);
-  color: var(--encre-2);
+  padding: 22px 18px;
+  text-align: center;
+  vertical-align: top;
+}
+.comparatif thead th.comparatif__coin{ text-align: left; vertical-align: bottom; color: var(--encre-3); font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.comparatif thead th.comparatif__plus{ background: #F1EFFD; }
+.comparatif__offre{ display: block; font-weight: 800; font-size: 17px; color: var(--encre); }
+.comparatif__prix{ display: block; margin-top: 6px; font-weight: 800; font-size: 22px; color: var(--violet); letter-spacing: -.02em; }
+.comparatif__prix small{ font-size: 12px; font-weight: 700; letter-spacing: 0; }
+.comparatif__detail{ display: block; margin-top: 4px; font-size: 12.5px; color: var(--encre-2); font-weight: 500; }
+.comparatif tbody th{ font-weight: 500; color: var(--encre); }
+.comparatif tbody tr.comparatif__groupe th{
+  background: #FBFAFE;
+  color: var(--violet);
   font-size: 12.5px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: .06em;
   text-transform: uppercase;
+  padding-top: 16px; padding-bottom: 10px;
 }
-.comparatif tbody th{ font-weight: 500; color: var(--encre); }
-.comparatif td, .comparatif thead th:not(:first-child){ text-align: center; width: 112px; }
-.comparatif thead th:last-child{ color: var(--violet); }
+.comparatif td{ text-align: center; width: 180px; }
+.comparatif td:last-child{ background: #FCFBFF; }
+.comparatif__valeur{ font-weight: 600; color: var(--encre); font-size: 14px; }
 .comparatif__oui, .comparatif__non{
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 28px; height: 28px;
-  border-radius: 50%;
+  border-radius: 8px;
   font-size: 15px;
   font-weight: 800;
 }
-.comparatif__oui{ color: #1B8A5A; background: #E3F5EC; }
+.comparatif__oui{ color: #fff; background: #23A05E; }
 .comparatif__non{ color: #C8352B; background: #FCE8E6; }
 @media (max-width: 600px){
-  .comparatif th, .comparatif td{ padding: 12px 10px; font-size: 14px; }
-  .comparatif td, .comparatif thead th:not(:first-child){ width: 80px; }
+  .comparatif th, .comparatif td{ padding: 11px 12px; font-size: 14px; }
+  .comparatif td{ width: 120px; }
+  .comparatif__prix{ font-size: 18px; }
 }
