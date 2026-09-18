@@ -1422,8 +1422,24 @@ a.ressource:hover{
 }
 .comparatif__oui{ color: #fff; background: #23A05E; }
 .comparatif__non{ color: #C8352B; background: #FCE8E6; }
+/* Sur téléphone (18/09/2026) : le tableau tient dans l'écran, sans
+   défilement horizontal. La colonne des fonctionnalités prend toute la
+   place restante ; les deux offres se serrent dans deux colonnes fixes
+   de 72 px, juste assez pour un ✓, un ✕ ou « Illimité ». Le détail du
+   prix (par an, 14 jours offerts) disparaît de l'en-tête : les cartes
+   d'offres, juste en dessous, le redisent en entier. */
 @media (max-width: 600px){
-  .comparatif th, .comparatif td{ padding: 11px 12px; font-size: 14px; }
-  .comparatif td{ width: 120px; }
-  .comparatif__prix{ font-size: 18px; }
+  .comparatif{ overflow-x: visible; }
+  .comparatif table{ min-width: 0; table-layout: fixed; }
+  .comparatif th, .comparatif td{ padding: 10px 10px; font-size: 13.5px; line-height: 1.3; }
+  .comparatif thead th{ padding: 14px 4px 12px; }
+  .comparatif thead th.comparatif__coin{ font-size: 10.5px; padding-left: 12px; letter-spacing: .04em; }
+  .comparatif thead th:not(.comparatif__coin), .comparatif td{ width: 72px; padding-left: 4px; padding-right: 4px; }
+  .comparatif__offre{ font-size: 13px; line-height: 1.2; }
+  .comparatif__prix{ font-size: 15px; margin-top: 4px; }
+  .comparatif__prix small{ display: block; font-size: 10.5px; line-height: 1.2; }
+  .comparatif__detail{ display: none; }
+  .comparatif tbody tr.comparatif__groupe th{ font-size: 11.5px; }
+  .comparatif__oui, .comparatif__non{ width: 24px; height: 24px; font-size: 13px; border-radius: 7px; }
+  .comparatif__valeur{ font-size: 12px; }
 }
