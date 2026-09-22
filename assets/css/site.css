@@ -810,6 +810,53 @@ body.menu-ouvert{ overflow: hidden; }
   .preuves__grille{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
+/* ── Avis de l'App Store ─────────────────────────────────────────
+   Des citations, pas des slogans : le texte reste celui que la
+   personne a écrit, et la carte se contente de le mettre au propre. */
+.avis-liste{
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  /* DEUX PAR DEUX, jamais trois puis un seul : une carte isolée sur sa
+     ligne se lit comme un oubli de mise en page. */
+  grid-template-columns: 1fr;
+  max-width: 880px;
+  margin-inline: auto;
+  padding: 0;
+}
+@media (min-width: 700px){
+  .avis-liste{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+}
+.avis-carte{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 18px;
+  border-radius: var(--r-md, 16px);
+  background: var(--papier);
+  border: 1px solid var(--trait);
+  box-shadow: 0 1px 2px rgba(15,14,28,.04);
+}
+.avis-carte__etoiles{
+  color: #F5A623;
+  font-size: .95rem;
+  letter-spacing: .12em;
+  line-height: 1;
+}
+.avis-carte__texte{ margin: 0; flex: 1; }
+.avis-carte__texte p{
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--encre);
+}
+.avis-carte__auteur{
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--encre-2);
+}
+.avis-carte__auteur span{ font-weight: 400; color: var(--encre-3); }
+
 /* Alternance texte / capture */
 .duo{
   display: flex;
